@@ -21,20 +21,31 @@ import javax.lang.model.element.Element;
 import java.util.ArrayList;
 
 public class Application {
+    private static void readUsingFileReader(String fileName) throws IOException {
+        File file = new File(fileName);
+        FileReader fr = new FileReader(file);
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        System.out.println("Reading text file using FileReader");
+        while((line = br.readLine()) != null){
+            //process the line
+            System.out.println(line);
+        }
+        br.close();
+        fr.close();
+    }
 
     public static void main(String[] args){
         // Clevis clevis = new Clevis();
         // Initialize and utilize the system
-        System.out.print("======================");
-        System.out.print("Welcome To Clevis");
-        System.out.print("======================");
-        System.out.print("Menu:");
+        System.out.print("======================"+"\n");
+        System.out.print("Welcome To Clevis"+ "\n");
+        System.out.print("======================" + "\n");
+        System.out.print("Menu:\n");
         ArrayList<String> x = new ArrayList<>();
 
         String filename = "operation.html";
-        File file = new File(filename);
-        Path path = Paths.get(filename);
-        Scanner scanner = new Scanner(path);
+
 
     }
 
