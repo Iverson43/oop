@@ -3,16 +3,16 @@ package hk.edu.polyu.comp.comp2021.clevis.model;
 public class Rectangle extends Shape {
 
     // The height and width for a rectangle.
-    private double w;
-    private double h;
+    private double width;
+    private double height;
 
-    Rectangle(double a, double b, double x, double y) {
+    Rectangle(double x, double y, double w, double h) {
         super(x, y);
-        this.w = a;
-        this.h = b;
+        this.width = w;
+        this.height = h;
     };
 
     // Returns width and height of a Rectangle
-    double getWidth() {return w;}
-    double getHeight() {return h;}
+    double getWidth() {return width;}
+    double getHeight() {return height;}
 }
