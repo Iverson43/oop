@@ -6,8 +6,8 @@ public class Rectangle extends Shape {
     private double width;
     private double height;
 
-    Rectangle(double x, double y, double w, double h) {
-        super(x, y);
+    Rectangle(String n, double x, double y, double w, double h) {
+        super(n, x, y);
         this.width = w;
         this.height = h;
     };
