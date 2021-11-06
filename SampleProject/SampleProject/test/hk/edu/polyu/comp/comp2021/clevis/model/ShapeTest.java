@@ -25,4 +25,24 @@ public class ShapeTest {
         assertEquals(3.27,line.getEndX(),2);
         assertEquals(2,line.getEndY(),0);
     }
+
+    @Test
+    public void testCircleConstructor(){
+        Circle circle = new Circle("C01", 8.53,5,3.27);
+        assertEquals("C01",circle.getName());
+        assertEquals(8.53,circle.getStartX(),2);
+        assertEquals(5,circle.getStartY(),0);
+        assertEquals(3.27,circle.getRadian(),2);
+    }
+
+    @Test
+    public void testSquareConstructor(){
+        Square square = new Square("S01", 8.53,5,7.23);
+        assertEquals("S01",square.getName());
+        assertEquals(8.53,square.getStartX(),2);
+        assertEquals(5,square.getStartY(),0);
+        assertEquals(7.23,square.getWidth(),2);
+        assertEquals(7.23,square.getHeight(),2);
+    }
+
 }
