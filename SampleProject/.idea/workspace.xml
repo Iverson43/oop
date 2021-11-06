@@ -4,6 +4,7 @@
     <list default="true" id="d278bf13-ef2a-4d2a-bd29-e08341091487" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/operation.html" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/operation.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
