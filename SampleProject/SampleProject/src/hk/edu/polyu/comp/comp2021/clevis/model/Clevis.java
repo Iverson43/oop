@@ -2,11 +2,11 @@ package hk.edu.polyu.comp.comp2021.clevis.model;
 import java.util.*;
 public class Clevis {
 
-    Shape[] shapeList;
+    ArrayList<Shape> shapeList;
     int count ;
 
     public Clevis(){
-        ArrayList<Shape> shapeList = new ArrayList<Shape>();
+        shapeList = new ArrayList<Shape>();
         count = 0;
     }
     public void add(String x){
@@ -23,7 +23,7 @@ public class Clevis {
                 double width = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s hight");
                 double hight = sc.nextDouble();
-                shapeList[count] = new Rectangle(name,xcoord,ycoord,width,hight);
+                shapeList.add(new Rectangle(name,xcoord,ycoord,width,hight));
                 count++;
                 break;
             case "Line()":
@@ -38,7 +38,7 @@ public class Clevis {
                 double endx = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s endting y coordinate");
                 double endy = sc.nextDouble();
-                shapeList[count] = new Line(name,startx,starty,endx,endy);
+                shapeList.add(new Line(name,startx,starty,endx,endy)) ;
                 count++;
                 break;
             case "Circle()":
@@ -51,7 +51,7 @@ public class Clevis {
                 double centery = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s radius");
                 double radius = sc.nextDouble();
-                shapeList[count] = new Circle(name,centerx,centery,radius);
+                shapeList.add(new Circle(name,centerx,centery,radius)) ;
                 count++;
                 break;
             case "Square()":
@@ -64,9 +64,24 @@ public class Clevis {
                 double sqy = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s width");
                 double sqw = sc.nextDouble();
-                shapeList[count] = new Square(name,sqx,sqy,sqw);
+                shapeList.add(new Square(name,sqx,sqy,sqw));
                 count++;
                 break;
+            case "Delete()":
+                System.out.println("Please input the name of the shape you want to delete: ");
+                sc = new Scanner(System.in);
+                name = sc.nextLine();
+                boolean found = false;
+                for (int i = 0 ; i < count ; i++){
+                    if(shapeList.get(i).getName().equals(name)){
+                        found = true;
+                        shapeList.remove(i);
+                        System.out.println("The shape " + name + " is deleted");
+                    }
+
+                }
+                if (found == false ) System.out.println("The shape " + name + " is not exsit");
+
         }
 
     }
