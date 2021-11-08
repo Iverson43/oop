@@ -23,6 +23,10 @@ public abstract class Shape {
     Coordination getTopLeft() {return topLeft;}
 
     abstract ArrayList<Coordination> getPoints();
+
+    public void move(double dx, double dy) {
+        topLeft = new Coordination(topLeft.getX()+dx , topLeft.getY()+dy);
+    }
 }
 
 class Line extends Shape{
