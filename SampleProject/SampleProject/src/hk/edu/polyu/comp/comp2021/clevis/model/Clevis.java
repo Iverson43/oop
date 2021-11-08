@@ -9,6 +9,12 @@ public class Clevis {
         shapeList = new ArrayList<Shape>();
         count = 0;
     }
+    public int match(ArrayList<Shape> x, String y){
+        for (int i = 0 ; i < count ; i++){
+            if (x.get(i).getName().equals(y)) return i;
+        }
+        return -1;
+    }
     public void add(String x){
         switch (x){
             case "Rectangle()":
@@ -71,16 +77,23 @@ public class Clevis {
                 System.out.println("Please input the name of the shape you want to delete: ");
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
-                boolean found = false;
-                for (int i = 0 ; i < count ; i++){
-                    if(shapeList.get(i).getName().equals(name)){
-                        found = true;
-                        shapeList.remove(i);
-                        System.out.println("The shape " + name + " is deleted");
-                    }
-
+                int found = match(this.shapeList,name);
+                if (found != -1){
+                    shapeList.remove(found);
+                    count --;
+                    System.out.println("The shape " + name + " is deleted");
                 }
-                if (found == false ) System.out.println("The shape " + name + " is not exsit");
+
+                else System.out.println("The shape " + name + " is not exsit");
+                break;
+            case "List()":
+                System.out.println("Please input the name of the shape you want to see it information");
+                sc = new Scanner(System.in);
+                name = sc.nextLine();
+                found = match(this.shapeList,name);
+                if (found != -1){
+                    System.out.println(shapeList.get(found).getName());
+                }
 
         }
 
