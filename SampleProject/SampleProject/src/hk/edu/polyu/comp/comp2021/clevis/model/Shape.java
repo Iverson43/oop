@@ -75,6 +75,7 @@ class Rectangle extends Shape {
         super(n, x, y);
         this.width = w;
         this.height = h;
+        this.toString();
     };
 
     // Returns width and height of a Rectangle
