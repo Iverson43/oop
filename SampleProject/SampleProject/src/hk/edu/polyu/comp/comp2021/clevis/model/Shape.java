@@ -1,6 +1,6 @@
 package hk.edu.polyu.comp.comp2021.clevis.model;
 
-class Shape {
+public class Shape {
 
     // The name and anchor of a Shape
     private String name;
@@ -17,6 +17,7 @@ class Shape {
     String getName() {return name;}
     double getStartX() {return x;}
     double getStartY() {return y;}
+
 }
 
 class Line extends Shape{

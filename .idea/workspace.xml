@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f68833b9-147f-483a-bd2c-b815eef19a42" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HelloTesting.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Circle.java" beforeDir="false" />
@@ -10,6 +11,7 @@
       <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Rectangle.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Square.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hello.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/hii" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/testing.txt" beforeDir="false" />
@@ -45,7 +47,22 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.ShapeTest.testLineConstructor">
+  <component name="RunManager" selected="JUnit.ShapeTest">
+    <configuration name="ShapeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oop" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.clevis.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model" />
+      <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model.ShapeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ShapeTest.testLineConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oop" />
       <extension name="coverage">
@@ -80,6 +97,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ShapeTest" />
         <item itemvalue="JUnit.ShapeTest.testLineConstructor" />
         <item itemvalue="JUnit.ShapeTest.testRectangleConstructor" />
       </list>
