@@ -30,6 +30,8 @@ public class Application {
             case 0 : case 1 : case 2 : case 3:
                 x.add(operation_command[input]);
                 break;
+            case 4:
+                x
             case 13:
                 System.out.println("Exiting Clevis");
                 System.exit(0);

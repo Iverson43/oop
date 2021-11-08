@@ -6,7 +6,7 @@ public class Clevis {
     int count ;
 
     public Clevis(){
-        shapeList = new Shape[100];
+        ArrayList<Shape> shapeList = new ArrayList<Shape>();
         count = 0;
     }
     public void add(String x){
