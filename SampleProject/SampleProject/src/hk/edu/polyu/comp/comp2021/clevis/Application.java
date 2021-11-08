@@ -16,12 +16,7 @@ public class Application {
         System.out.println("Welcome To Clevis");
         System.out.println("======================" );
         System.out.println("Menu:");
-        int size = 13;
-        int[] operation_index = new int[size];
-        for (int i= 0 ; i < size ; i++){
-            operation_index[i] = i;
-        }
-        String[] operation_command = new String[]{"Rectangle()","line()","Circle()","Group()","Ungroup()",
+        String[] operation_command = new String[]{"Rectangle()","Line()","Circle()","Square()" , "Group()","Ungroup()",
         "Delete()","Boundingbox()","Move()","Pick_and_move()","Intersect()","List()","Listall()","Quit()"};
         for (int i = 0; i < operation_command.length ; i++){
             System.out.println(i + " : " + operation_command[i] );
@@ -32,7 +27,10 @@ public class Application {
         int input = inputobj.nextInt();
         switch(input)
         {
-            case 12:
+            case 0 : case 1 : case 2 : case 3:
+                x.add(operation_command[input]);
+                break;
+            case 13:
                 System.out.println("Exiting Clevis");
                 System.exit(0);
                 break;
