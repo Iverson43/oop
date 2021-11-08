@@ -2,7 +2,7 @@ package hk.edu.polyu.comp.comp2021.clevis.model;
 import java.util.*;
 public class Clevis {
 
-    Shape[] shapeList;
+    ArrayList<Shape> shapeList;
     int count ;
 
     public Clevis(){
