@@ -19,9 +19,9 @@ public class Clevis {
                 double xcoord = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s top left y coordinate");
                 double ycoord = sc.nextDouble();
-                System.out.println( "Please input " + name + "'s top width");
+                System.out.println( "Please input " + name + "'s width");
                 double width = sc.nextDouble();
-                System.out.println( "Please input " + name + "'s top hight");
+                System.out.println( "Please input " + name + "'s hight");
                 double hight = sc.nextDouble();
                 shapeList[count] = new Rectangle(name,xcoord,ycoord,width,hight);
                 count++;
