@@ -8,7 +8,16 @@ import java.util.Scanner;
 
 public class Application {
 
-
+    public static int printmenu(String[] x){
+        System.out.println("Menu:");
+        for (int i = 0; i < x.length ; i++){
+            System.out.println(i + " : " + x[i] );
+        }
+        Scanner inputobj = new Scanner(System.in);
+        System.out.println("Input your command: ");
+        int input = inputobj.nextInt();
+        return input;
+    }
     public static void main(String[] args) {
         // Clevis clevis = new Clevis();
         // Initialize and utilize the system
@@ -18,26 +27,30 @@ public class Application {
         System.out.println("Menu:");
         String[] operation_command = new String[]{"Rectangle()","Line()","Circle()","Square()" , "Group()","Ungroup()",
         "Delete()","Boundingbox()","Move()","Pick_and_move()","Intersect()","List()","Listall()","Quit()"};
-        for (int i = 0; i < operation_command.length ; i++){
-            System.out.println(i + " : " + operation_command[i] );
-        }
         Clevis x = new Clevis();
-        Scanner inputobj = new Scanner(System.in);
-        System.out.println("Input your command: ");
-        int input = inputobj.nextInt();
-        switch(input)
-        {
-            case 0 : case 1 : case 2 : case 3:
-                x.add(operation_command[input]);
-                break;
-            case 4:
-                x
-            case 13:
-                System.out.println("Exiting Clevis");
-                System.exit(0);
-                break;
 
+        boolean leave = false;
+        while (leave == false){
+            int Input = printmenu(operation_command);
+            switch(Input)
+            {
+                case 0 : case 1 : case 2 : case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
+                case 11 :case 12 :
+                    x.add(operation_command[Input]);
+                    break;
+                case 13:
+                    System.out.println("Exiting Clevis");
+                    leave = true;
+                    System.exit(0);
+                    break;
+            }
+            System.out.println("Continue?:\ntype '0' to continue\n'1' to quit");
+            Scanner leave1 = new Scanner(System.in);
+            int j = leave1.nextInt();
+            if (j == 0) continue;
+            else System.exit(0);
         }
+
 
 
 
