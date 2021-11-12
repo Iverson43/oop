@@ -16,6 +16,14 @@ public class Clevis {
         }
         return -1;
     }
+    public void unlockedList(Shape s, int index){
+        s = shapeList.get(index);
+        if (!s.getlock()) listPrint(s);
+        if (s instanceof Groupped){
+            for (int i = ((Groupped) s).lock.size()-1; i>=0;i--)
+                listPrint(((Groupped) s).lock.get(i));
+        }
+    }
     public void listPrint(Shape s){
         System.out.println("Name: "+s.getName());
         if (s instanceof Circle) {
@@ -116,16 +124,12 @@ public class Clevis {
                 found = match(this.shapeList,name);
                 Shape temp;
                 if (found != -1) {
-                    temp = shapeList.get(found);
-                    if (!temp.getlock()) listPrint(temp);
-                    if (temp instanceof Groupped){
-                        for (Shape each: ((Groupped) temp).lock) listPrint(temp);
-                    }
+                    unlockedList(shapeList.get(found),found);
                 }
             case "Listall()":
-                for (int i = shapeList.size()-1; i>=0;i--)
-                    listPrint(shapeList.get(i));
-                //Group ListAll - unfinished
+                for (int i = shapeList.size()-1; i>=0;i--) {
+                    unlockedList(shapeList.get(i),i);
+                }
             case "Move()":
                 System.out.println("Please input the name of the shape you want to move: ");
                 sc = new Scanner(System.in);
