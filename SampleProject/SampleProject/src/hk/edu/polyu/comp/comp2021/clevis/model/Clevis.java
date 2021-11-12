@@ -16,6 +16,30 @@ public class Clevis {
         }
         return -1;
     }
+    public void listPrint(Shape s){
+        System.out.println("Name: "+s.getName());
+        if (s instanceof Circle) {
+            System.out.println("Center: ("+s.getTopLeft().getX()+","+s.getTopLeft().getY()+")");
+            System.out.println("Radius: ("+((Circle) s).getRadius());
+        }else if (s instanceof Line){
+            System.out.print("Two ends: ("+s.getTopLeft().getX()+","+s.getTopLeft().getY()+") and ("
+                    +((Line) s).getEndX()+","+((Line) s).getEndY()+")");
+        }else if (s instanceof Rectangle){
+            System.out.println("Top-left corner: ("+s.getTopLeft().getX()+","+s.getTopLeft().getY()+")" );
+            if (s instanceof Square){
+                System.out.println("Side Length: "+ ((Square) s).getWidth());
+            }else {
+                System.out.println("Width: "+ ((Rectangle) s).getWidth());
+                System.out.println("Height: "+ ((Rectangle) s).getHeight());
+            }
+        }else{
+            //For grouped element
+        }
+    }
+    public void move(Shape s, double dx, double dy){
+        s.move(dx,dy);
+        if (s instanceof Line) ((Line) s).moveEnd(dx,dy);
+    }
     public void add(String x){
         switch (x){
             case "Rectangle()":
@@ -92,9 +116,40 @@ public class Clevis {
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
                 found = match(this.shapeList,name);
-                if (found != -1){
-                    System.out.println(shapeList.get(found).getName());
+                if (found != -1)
+                    listPrint(shapeList.get(found));
+                //Group list - unfinished
+            case "Listall()":
+                for (int i = shapeList.size()-1; i>=0;i--)
+                    listPrint(shapeList.get(i));
+                //Group ListAll - unfinished
+            case "Move()":
+                System.out.println("Please input the name of the shape you want to move: ");
+                sc = new Scanner(System.in);
+                name = sc.nextLine();
+                found = match(this.shapeList,name);
+                System.out.println("Please input the units to move "+name+" horizontally: ");
+                double dx = sc.nextDouble();
+                System.out.println("Please input the units to move "+name+" vertically: ");
+                double dy = sc.nextDouble();
+                if (found != -1) {
+                    move(shapeList.get(found),dx, dy);
                 }
+            case "Pick_and_move()":
+                System.out.println("Please input the x coordinate of picked point: ");
+                sc = new Scanner(System.in);
+                double px = sc.nextDouble();
+                System.out.println( "Please input the y coordinate of picked point: ");
+                double py = sc.nextDouble();
+                System.out.println("Please input the units to move the picked shape horizontally: ");
+                dx = sc.nextDouble();
+                System.out.println("Please input the units to move the picked shape vertically: ");
+                dy = sc.nextDouble();
+                //pick have not done
+
+                //move
+
+
             case "Group()":
                 System.out.println("Please input the name of the grouped shape: ");
                 sc = new Scanner(System.in);
