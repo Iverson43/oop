@@ -54,6 +54,10 @@ class Line extends Shape{
         result.add(bottomRight);
         return result;
     }
+
+    public void moveEnd(double dx, double dy) {
+        bottomRight = new Coordination(bottomRight.getX()+dx, bottomRight.getY()+dy);
+    }
 }
 
 class Circle extends Shape{
