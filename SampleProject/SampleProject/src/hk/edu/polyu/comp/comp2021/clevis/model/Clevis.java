@@ -32,8 +32,6 @@ public class Clevis {
                 System.out.println("Width: "+ ((Rectangle) s).getWidth());
                 System.out.println("Height: "+ ((Rectangle) s).getHeight());
             }
-        }else{
-            //For grouped element
         }
     }
     public void move(Shape s, double dx, double dy){
@@ -116,9 +114,14 @@ public class Clevis {
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
                 found = match(this.shapeList,name);
-                if (found != -1)
-                    listPrint(shapeList.get(found));
-                //Group list - unfinished
+                Shape temp;
+                if (found != -1) {
+                    temp = shapeList.get(found);
+                    if (!temp.getlock()) listPrint(temp);
+                    if (temp instanceof Groupped){
+                        for (Shape each: ((Groupped) temp).lock) listPrint(temp);
+                    }
+                }
             case "Listall()":
                 for (int i = shapeList.size()-1; i>=0;i--)
                     listPrint(shapeList.get(i));
