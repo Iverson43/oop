@@ -10,22 +10,28 @@ public abstract class Shape {
     // The name and anchor of a Shape
     private String name;
     private Coordination topLeft;
-
+    private boolean islock;
     Shape(String n, double a, double b) {
         this.name = n;
         this.topLeft = new Coordination(a,b);
-    };
 
+    };
     //Returns the name and coordination of a Shape
     String getName() {return name;}
     double getStartX() {return topLeft.getX();}
     double getStartY() {return topLeft.getY();}
     Coordination getTopLeft() {return topLeft;}
-
+    boolean getlock() {return islock;}
     abstract ArrayList<Coordination> getPoints();
 
     public void move(double dx, double dy) {
         topLeft = new Coordination(topLeft.getX()+dx , topLeft.getY()+dy);
+    }
+    public void setlock(){
+        this.islock = true;
+    }
+    public void unlock(){
+        this.islock = true;
     }
 }
 
@@ -109,5 +115,33 @@ class Square extends Rectangle{
     Square(String n, double x, double y, double l) {
         super(n, x, y, l, l);
     }
+
+}
+class Groupped extends Shape{
+    ArrayList<Shape> lock;
+    Groupped(String x){
+
+        super(x, 0 , 0);
+        lock = new ArrayList<Shape>();
+        lock.add(this);
+    }
+    public void addintogroup(Shape y){
+        lock.add(y);
+
+    }
+    public void ungroup(){
+        for (int i = 0; i< lock.size();i++){
+            lock.get(i).unlock();
+        }
+    }
+    public void printtest(){
+        for(int i=0; i< lock.size();i++){
+            System.out.println(lock.get(i).getName());
+            System.out.println(lock.get(i).getStartX());
+            System.out.println(lock.get(i).getStartY());
+            System.out.println(lock.get(i).getlock());
+        }
+    }
+    ArrayList<Coordination> getPoints(){return null;};
 
 }

@@ -3,6 +3,7 @@ import java.util.*;
 public class Clevis {
 
     ArrayList<Shape> shapeList;
+
     int count ;
 
     public Clevis(){
@@ -94,7 +95,42 @@ public class Clevis {
                 if (found != -1){
                     System.out.println(shapeList.get(found).getName());
                 }
+            case "Group()":
+                System.out.println("Please input the name of the grouped shape: ");
+                sc = new Scanner(System.in);
+                String groupname = sc.nextLine();
+                boolean finish_input = false;
+                Groupped groupped_name = new Groupped(groupname);
 
+                while(finish_input == false){
+                    System.out.println("Please input the name of the shape you want to group");
+                    sc = new Scanner(System.in);
+                    name = sc.nextLine();
+                    found = match(this.shapeList,name);
+                    if (found != -1){
+                        shapeList.get(found).setlock();
+                        groupped_name.addintogroup(shapeList.get(found));
+                    }
+                    System.out.println("Continue to add?\nType 'yes' to continue\nType 'no' to stop adding");
+                    sc = new Scanner(System.in);
+                    String Continue = sc.nextLine();
+                    if(Continue.equals("yes")) continue;
+                    else finish_input = true;
+                }
+
+                shapeList.add(groupped_name);
+                groupped_name.printtest();
+            case "Ungroup()":
+                System.out.println("Please input the name of the shape you want to ungroup");
+                sc = new Scanner(System.in);
+                name = sc.nextLine();
+                for (int i = 0; i < shapeList.size(); i++){
+                    if(shapeList.get(i).getClass().getSimpleName().equals("Groupped")){
+                        if (shapeList.get(0).getName().equals(name)){
+                            ((Groupped)shapeList.get(i)).ungroup();
+                        }
+                    }
+                }
         }
 
     }
