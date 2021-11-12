@@ -42,9 +42,16 @@ public class Clevis {
         }
         UI();
     }
+    public void availableList(Shape s, int index){
+        s = shapeList.get(index);
+        if (!s.getlock()) listPrint(s);
+        if (s instanceof Groupped){
+            for (int i = ((Groupped) s).lock.size()-1;i<=0;i--) listPrint(((Groupped) s).lock.get(i));
+        }
+    }
     public void move(Shape s, double dx, double dy){
         s.move(dx,dy);
-        //if (s instanceof Line) ((Line) s).moveEnd(dx,dy);
+        if (s instanceof Line) ((Line) s).moveEnd(dx,dy);
     }
     public void add(String x){
         switch (x){
@@ -135,18 +142,13 @@ public class Clevis {
                 UI();
                 Shape temp;
                 if (found != -1) {
-                    temp = shapeList.get(found);
-                    if (!temp.getlock()) listPrint(temp);
-                    if (temp instanceof Groupped){
-                        for (Shape each: ((Groupped) temp).lock) listPrint(temp);
-                    }
+                    availableList(shapeList.get(found),found);
                 }
                 UI();
                 break;
             case "Listall()":
                 for (int i = shapeList.size()-1; i>=0;i--)
-                    listPrint(shapeList.get(i));
-                //Group ListAll - unfinished
+                    availableList(shapeList.get(i),i);
                 UI();
                 break;
             case "Move()":
