@@ -122,7 +122,6 @@ public class Clevis {
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
                 found = match(this.shapeList,name);
-                Shape temp;
                 if (found != -1) {
                     unlockedList(shapeList.get(found),found);
                 }
