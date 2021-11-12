@@ -1,8 +1,6 @@
 package hk.edu.polyu.comp.comp2021.clevis.model;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public abstract class Shape {
@@ -10,58 +8,90 @@ public abstract class Shape {
     // The name and anchor of a Shape
     private String name;
     private Coordination topLeft;
-
+    private boolean islock;
     Shape(String n, double a, double b) {
         this.name = n;
         this.topLeft = new Coordination(a,b);
-    };
 
+    };
     //Returns the name and coordination of a Shape
     String getName() {return name;}
-    double getStartX() {return topLeft.getX();}
-    double getStartY() {return topLeft.getY();}
     Coordination getTopLeft() {return topLeft;}
-
+<<<<<<< Updated upstream
+    boolean getlock() {return islock;}
     abstract ArrayList<Coordination> getPoints();
 
     public void move(double dx, double dy) {
         topLeft = new Coordination(topLeft.getX()+dx , topLeft.getY()+dy);
     }
+    public void setlock(){
+        this.islock = true;
+    }
+    public void unlock(){
+        this.islock = false;
+    }
+=======
+
+    //Move the Shape
+    public void move(double dx, double dy) {
+        topLeft = new Coordination(topLeft.getX()+dx , topLeft.getY()+dy);
+    }
+
+    // Abstract Methods
+    abstract ArrayList<Coordination> getPoints();
+>>>>>>> Stashed changes
 }
 
 class Line extends Shape{
 
+<<<<<<< Updated upstream
     private Coordination bottomRight;
+    private Boundary boundary;
+=======
+    private Coordination bottomRight; //Another end's coordination
+>>>>>>> Stashed changes
 
     Line(String n, double x1, double y1, double x2, double y2) {
         super(n, x1, y1);
         this.bottomRight = new Coordination(x2,y2);
+        this.boundary = new Boundary(this);
     }
 
-    // Returns width and height of a Rectangle
+    // Returns another end of a Line
     double getEndX() {return bottomRight.getX();}
     double getEndY() {return bottomRight.getY();}
 
+    // Returns the coordination of two ends
     ArrayList<Coordination> getPoints() {
         ArrayList<Coordination> result = new ArrayList<Coordination>();
         result.add(this.getTopLeft());
         result.add(bottomRight);
         return result;
     }
+
+    public void moveEnd(double dx, double dy) {
+        bottomRight = new Coordination(bottomRight.getX()+dx, bottomRight.getY()+dy);
+    }
 }
 
 class Circle extends Shape{
 
     //The radian of a circle
-    private double radian;
+    private double radius;
 
     Circle(String n, double x, double y, double r) {
         super(n, x, y);
-        this.radian = r;
+        this.radius = r;
     }
 
     //Return the radian of a circle
+<<<<<<< Updated upstream
+    double getRadius() {return radius;}
+=======
     double getRadian() {return radian;}
+
+    //Return the coordination of centre.
+>>>>>>> Stashed changes
     ArrayList<Coordination> getPoints() {
         ArrayList<Coordination> result = new ArrayList<>();
         result.add(this.getTopLeft());
@@ -86,22 +116,16 @@ class Rectangle extends Shape {
     double getWidth() {return width;}
     double getHeight() {return height;}
 
+    // Return the coordination of four corners,
     ArrayList<Coordination> getPoints() {
         ArrayList<Coordination> result = new ArrayList<>();
         result.add(this.getTopLeft());
-        result.add(new Coordination(this.getStartX()+width, this.getStartY()));
-        result.add(new Coordination(this.getStartX(), this.getStartY()+height));
-        result.add(new Coordination(this.getStartX()+width, this.getStartY()+height));
+        result.add(new Coordination(this.getTopLeft().getX()+width, this.getTopLeft().getY()));
+        result.add(new Coordination(this.getTopLeft().getX(), this.getTopLeft().getY()+height));
+        result.add(new Coordination(this.getTopLeft().getX()+width, this.getTopLeft().getY()+height));
         return result;
     }
 
-    @Override
-
-    public String toString() {
-        System.out.println(this.getName());
-        System.out.println("Area: " + width*height);
-        return null;
-    }
 }
 
 class Square extends Rectangle{
@@ -109,5 +133,36 @@ class Square extends Rectangle{
     Square(String n, double x, double y, double l) {
         super(n, x, y, l, l);
     }
+
+}
+class Groupped extends Shape{
+    ArrayList<Shape> lock;
+    Groupped(String x){
+
+        super(x, 0 , 0);
+        lock = new ArrayList<Shape>();
+        lock.add(this);
+    }
+    public void addintogroup(Shape y){
+        lock.add(y);
+
+    }
+    public void ungroup(){
+        for (int i = 0; i< lock.size();i++){
+            lock.get(i).unlock();
+        }
+    }
+    public void printtest(){
+        for(int i=0; i< lock.size();i++){
+            System.out.println(lock.get(i).getName());
+            System.out.println(lock.get(i).getStartX());
+            System.out.println(lock.get(i).getStartY());
+            System.out.println(lock.get(i).getlock());
+        }
+    }
+    public String getgpname(){
+        return lock.get(0).getName();
+    }
+    ArrayList<Coordination> getPoints(){return null;};
 
 }

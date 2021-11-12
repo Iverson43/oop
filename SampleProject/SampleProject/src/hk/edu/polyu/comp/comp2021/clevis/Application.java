@@ -13,6 +13,7 @@ public class Application {
         for (int i = 0; i < x.length ; i++){
             System.out.println(i + " : " + x[i] );
         }
+        System.out.println("-------------------\n");
         Scanner inputobj = new Scanner(System.in);
         System.out.println("Input your command: ");
         int input = inputobj.nextInt();
@@ -24,7 +25,6 @@ public class Application {
         System.out.println("======================");
         System.out.println("Welcome To Clevis");
         System.out.println("======================" );
-        System.out.println("Menu:");
         String[] operation_command = new String[]{"Rectangle()","Line()","Circle()","Square()" , "Group()","Ungroup()",
         "Delete()","Boundingbox()","Move()","Pick_and_move()","Intersect()","List()","Listall()","Quit()"};
         Clevis x = new Clevis();
@@ -50,10 +50,6 @@ public class Application {
             if (j == 0) continue;
             else System.exit(0);
         }
-
-
-
-
 
     }
 
