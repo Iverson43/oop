@@ -59,15 +59,15 @@ class Line extends Shape{
 class Circle extends Shape{
 
     //The radian of a circle
-    private double radian;
+    private double radius;
 
     Circle(String n, double x, double y, double r) {
         super(n, x, y);
-        this.radian = r;
+        this.radius = r;
     }
 
     //Return the radian of a circle
-    double getRadian() {return radian;}
+    double getRadius() {return radius;}
     ArrayList<Coordination> getPoints() {
         ArrayList<Coordination> result = new ArrayList<>();
         result.add(this.getTopLeft());
