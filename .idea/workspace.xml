@@ -50,6 +50,8 @@
   </component>
   <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.clevis.Application" />
       <module name="oop" />
       <extension name="coverage">
@@ -124,6 +126,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Application" />
+      <item itemvalue="JUnit.ClevisTest" />
+      <item itemvalue="JUnit.ShapeTest" />
+      <item itemvalue="JUnit.ShapeTest.testLineConstructor" />
+      <item itemvalue="JUnit.ShapeTest.testRectangleConstructor" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />

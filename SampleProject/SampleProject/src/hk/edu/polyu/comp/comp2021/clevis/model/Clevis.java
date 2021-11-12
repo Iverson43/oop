@@ -44,7 +44,7 @@ public class Clevis {
     }
     public void move(Shape s, double dx, double dy){
         s.move(dx,dy);
-        if (s instanceof Line) ((Line) s).moveEnd(dx,dy);
+        //if (s instanceof Line) ((Line) s).moveEnd(dx,dy);
     }
     public void add(String x){
         switch (x){

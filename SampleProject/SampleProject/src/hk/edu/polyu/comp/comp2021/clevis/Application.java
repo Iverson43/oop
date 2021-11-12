@@ -25,7 +25,6 @@ public class Application {
         System.out.println("======================");
         System.out.println("Welcome To Clevis");
         System.out.println("======================" );
-        System.out.println("Menu:");
         String[] operation_command = new String[]{"Rectangle()","Line()","Circle()","Square()" , "Group()","Ungroup()",
         "Delete()","Boundingbox()","Move()","Pick_and_move()","Intersect()","List()","Listall()","Quit()"};
         Clevis x = new Clevis();
