@@ -50,6 +50,15 @@ public class Clevis {
         s.move(dx,dy);
         if (s instanceof Line) ((Line) s).moveEnd(dx,dy);
     }
+    public void moveGroup(Groupped s, double dx, double dy){
+        for (Shape each: s.lock) move(each,dx,dy);
+    }
+    public ArrayList<Groupped> getGroupedList(){
+        ArrayList<Groupped> groupedList = new ArrayList<Groupped>();
+        for (Shape s: shapeList)
+            if (s instanceof Groupped) groupedList.add((Groupped)s);
+        return groupedList;
+    }
     public void add(String x){
         switch (x){
             case "Rectangle()":
@@ -162,14 +171,11 @@ public class Clevis {
                 if (found != -1) {
                     temp = shapeList.get(found);
                     if (temp instanceof Groupped)
-                        for (Shape each: ((Groupped) temp).lock) move(temp,dx, dy);
+                        moveGroup((Groupped) temp, dx, dy);
                     else if (temp.getlock()){
-                        for (Shape s: shapeList){
-                            if (s instanceof Groupped )
-                                if (((Groupped) s).lock.contains(temp)){
-                                    for (Shape each: ((Groupped) temp).lock) move(temp,dx, dy);
-                                }
-                        }
+                        for (Groupped s: getGroupedList())
+                            if (s.lock.contains(temp))
+                                moveGroup(s, dx, dy);
                     }else move(temp,dx, dy);
                 }
                 UI();
