@@ -52,10 +52,6 @@ public class Application {
             else System.exit(0);
         }
 
-
-
-
-
     }
 
 }
