@@ -21,4 +21,21 @@ public class Coordination {
     public double getY() {
         return this.y;
     }
+
+    public double displacement(Coordination other) {
+        double result = Math.sqrt( Math.pow(this.getX() - other.getX(), 2) + Math.pow(this.getY() - other.getY(), 2));
+        return Math.round(result * 100.0) / 100.0;
+    }
+
+    public double xDisplacement(Coordination other) {
+        return Math.abs(this.getX() - this.getX());
+    }
+
+    public double yDisplacement(Coordination other) {
+        return Math.abs(this.getY() - this.getY());
+    }
+
+    public double slope(Coordination other) {
+        return (other.getY() - this.getY()) / (other.getX() - this.getX());
+    }
 }

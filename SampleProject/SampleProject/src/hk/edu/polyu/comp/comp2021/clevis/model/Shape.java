@@ -1,8 +1,6 @@
 package hk.edu.polyu.comp.comp2021.clevis.model;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public abstract class Shape {
@@ -38,10 +36,12 @@ public abstract class Shape {
 class Line extends Shape{
 
     private Coordination bottomRight;
+    private Boundary boundary;
 
     Line(String n, double x1, double y1, double x2, double y2) {
         super(n, x1, y1);
         this.bottomRight = new Coordination(x2,y2);
+        this.boundary = new Boundary(this);
     }
 
     // Returns width and height of a Rectangle
