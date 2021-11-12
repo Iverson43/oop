@@ -204,8 +204,8 @@ public class Clevis {
                 name = sc.nextLine();
                 boolean hvgp = false;
                 for (int i = 0; i < shapeList.size(); i++){
-                    if(shapeList.get(i).getClass().getSimpleName().equals("Groupped")){
-                        if (shapeList.get(0).getName().equals(name)){
+                    if(shapeList.get(i) instanceof Groupped){
+                        if (((Groupped) shapeList.get(i)).getgpname().equals(name)){
                             ((Groupped)shapeList.get(i)).ungroup();
                             hvgp = true;
                         }
