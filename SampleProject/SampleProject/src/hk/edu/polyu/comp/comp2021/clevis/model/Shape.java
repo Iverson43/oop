@@ -16,9 +16,8 @@ public abstract class Shape {
     };
     //Returns the name and coordination of a Shape
     String getName() {return name;}
-    double getStartX() {return topLeft.getX();}
-    double getStartY() {return topLeft.getY();}
     Coordination getTopLeft() {return topLeft;}
+<<<<<<< Updated upstream
     boolean getlock() {return islock;}
     abstract ArrayList<Coordination> getPoints();
 
@@ -31,12 +30,26 @@ public abstract class Shape {
     public void unlock(){
         this.islock = false;
     }
+=======
+
+    //Move the Shape
+    public void move(double dx, double dy) {
+        topLeft = new Coordination(topLeft.getX()+dx , topLeft.getY()+dy);
+    }
+
+    // Abstract Methods
+    abstract ArrayList<Coordination> getPoints();
+>>>>>>> Stashed changes
 }
 
 class Line extends Shape{
 
+<<<<<<< Updated upstream
     private Coordination bottomRight;
     private Boundary boundary;
+=======
+    private Coordination bottomRight; //Another end's coordination
+>>>>>>> Stashed changes
 
     Line(String n, double x1, double y1, double x2, double y2) {
         super(n, x1, y1);
@@ -44,10 +57,11 @@ class Line extends Shape{
         this.boundary = new Boundary(this);
     }
 
-    // Returns width and height of a Rectangle
+    // Returns another end of a Line
     double getEndX() {return bottomRight.getX();}
     double getEndY() {return bottomRight.getY();}
 
+    // Returns the coordination of two ends
     ArrayList<Coordination> getPoints() {
         ArrayList<Coordination> result = new ArrayList<Coordination>();
         result.add(this.getTopLeft());
@@ -71,7 +85,13 @@ class Circle extends Shape{
     }
 
     //Return the radian of a circle
+<<<<<<< Updated upstream
     double getRadius() {return radius;}
+=======
+    double getRadian() {return radian;}
+
+    //Return the coordination of centre.
+>>>>>>> Stashed changes
     ArrayList<Coordination> getPoints() {
         ArrayList<Coordination> result = new ArrayList<>();
         result.add(this.getTopLeft());
@@ -96,22 +116,16 @@ class Rectangle extends Shape {
     double getWidth() {return width;}
     double getHeight() {return height;}
 
+    // Return the coordination of four corners,
     ArrayList<Coordination> getPoints() {
         ArrayList<Coordination> result = new ArrayList<>();
         result.add(this.getTopLeft());
-        result.add(new Coordination(this.getStartX()+width, this.getStartY()));
-        result.add(new Coordination(this.getStartX(), this.getStartY()+height));
-        result.add(new Coordination(this.getStartX()+width, this.getStartY()+height));
+        result.add(new Coordination(this.getTopLeft().getX()+width, this.getTopLeft().getY()));
+        result.add(new Coordination(this.getTopLeft().getX(), this.getTopLeft().getY()+height));
+        result.add(new Coordination(this.getTopLeft().getX()+width, this.getTopLeft().getY()+height));
         return result;
     }
 
-    @Override
-
-    public String toString() {
-        System.out.println(this.getName());
-        System.out.println("Area: " + width*height);
-        return null;
-    }
 }
 
 class Square extends Rectangle{

@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f68833b9-147f-483a-bd2c-b815eef19a42" name="Changes" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloTesting.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Coordination.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Coordination.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.java" afterDir="false" />

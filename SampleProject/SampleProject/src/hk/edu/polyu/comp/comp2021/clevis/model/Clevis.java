@@ -220,6 +220,7 @@ public class Clevis {
                     if(Continue.equals("yes")) continue;
                     else finish_input = true;
                 }
+<<<<<<< Updated upstream
 
                 shapeList.add(groupped_name);
                 UI();
@@ -241,6 +242,9 @@ public class Clevis {
                 if (!hvgp) System.out.println("There is no grouped shape call: " + name + " please try again");
                 else System.out.println("The grouped shape: " + name +" has been unlocked");
                 UI();
+=======
+                if (found == false ) System.out.println("The shape " + name + " is not exist");
+>>>>>>> Stashed changes
                 break;
         }
 
