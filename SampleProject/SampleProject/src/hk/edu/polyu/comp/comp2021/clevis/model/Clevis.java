@@ -122,13 +122,11 @@ public class Clevis {
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
                 found = match(this.shapeList,name);
-                if (found != -1) {
-                    unlockedList(shapeList.get(found),found);
-                }
+                if (found != -1) unlockedList(shapeList.get(found),found);
+
             case "Listall()":
-                for (int i = shapeList.size()-1; i>=0;i--) {
-                    unlockedList(shapeList.get(i),i);
-                }
+                for (int i = shapeList.size()-1; i>=0;i--) unlockedList(shapeList.get(i),i);
+
             case "Move()":
                 System.out.println("Please input the name of the shape you want to move: ");
                 sc = new Scanner(System.in);
@@ -138,8 +136,15 @@ public class Clevis {
                 double dx = sc.nextDouble();
                 System.out.println("Please input the units to move "+name+" vertically: ");
                 double dy = sc.nextDouble();
+                Shape temp;
                 if (found != -1) {
-                    move(shapeList.get(found),dx, dy);
+                    temp = shapeList.get(found);
+                    if (temp instanceof Groupped)
+                        for (Shape each: temp)
+
+
+
+                    //move(shapeList.get(found),dx, dy);
                 }
             case "Pick_and_move()":
                 System.out.println("Please input the x coordinate of picked point: ");
