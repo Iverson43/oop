@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f68833b9-147f-483a-bd2c-b815eef19a42" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloTesting.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Circle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Line.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Rectangle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Square.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hii" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +31,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
