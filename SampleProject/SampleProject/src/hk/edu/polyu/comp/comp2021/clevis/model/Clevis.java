@@ -15,6 +15,27 @@ public class Clevis {
         }
         return -1;
     }
+    public void listPrint(Shape s){
+        System.out.println("Name: "+s.getName());
+        if (s instanceof Circle) {
+            System.out.println("Center: ("+s.getTopLeft().getX()+","+s.getTopLeft().getY()+")");
+            System.out.println("Radius: ("+((Circle) s).getRadius());
+        }else if (s instanceof Line){
+            System.out.print("Two ends: ("+s.getTopLeft().getX()+","+s.getTopLeft().getY()+") and ("
+                    +((Line) s).getEndX()+","+((Line) s).getEndY()+")");
+        }else if (s instanceof Rectangle){
+            System.out.println("Top-left corner: ("+s.getTopLeft().getX()+","+s.getTopLeft().getY()+")" );
+            if (s instanceof Square){
+                System.out.println("Side Length: "+ ((Square) s).getWidth());
+            }else {
+                System.out.println("Width: "+ ((Rectangle) s).getWidth());
+                System.out.println("Height: "+ ((Rectangle) s).getHeight());
+            }
+        }else{
+            //For grouped element
+        }
+
+    }
     public void add(String x){
         switch (x){
             case "Rectangle()":
@@ -84,7 +105,7 @@ public class Clevis {
                     System.out.println("The shape " + name + " is deleted");
                 }
 
-                else System.out.println("The shape " + name + " is not exsit");
+                else System.out.println("The shape " + name + " is not exist");
                 break;
             case "List()":
                 System.out.println("Please input the name of the shape you want to see it information");
@@ -92,8 +113,12 @@ public class Clevis {
                 name = sc.nextLine();
                 found = match(this.shapeList,name);
                 if (found != -1){
-                    System.out.println(shapeList.get(found).getName());
+                    listPrint(shapeList.get(found));
                 }
+            case "ListAll()":
+                    for (Shape each: shapeList){
+                        listPrint(each);
+                    }
 
         }
 
