@@ -19,10 +19,7 @@ public class Clevis {
     public void UI(){
         System.out.println("-------------------\n");
     }
-    public boolean checklock(ArrayList<Shape> x , int y){
-        if(x.get(y).getlock() == true) return true;
-        else return false;
-    }
+
     public void listPrint(Shape s){
         System.out.println("Name: "+s.getName());
         if (s instanceof Circle) {
@@ -125,12 +122,11 @@ public class Clevis {
                 name = sc.nextLine();
                 int found = match(this.shapeList,name);
                 UI();
-                if (found != -1){
+                if (found != -1 && shapeList.get(found).getlock() == false){
                     shapeList.remove(found);
                     count --;
                     System.out.println("The shape " + name + " is deleted");
                 }
-
                 else System.out.println("The shape " + name + " is not exsit");
                 UI();
                 break;
@@ -141,14 +137,16 @@ public class Clevis {
                 found = match(this.shapeList,name);
                 UI();
                 Shape temp;
-                if (found != -1) {
+                if (found != -1 && shapeList.get(found).getlock() == false) {
                     availableList(shapeList.get(found),found);
                 }
                 UI();
                 break;
             case "Listall()":
-                for (int i = shapeList.size()-1; i>=0;i--)
-                    availableList(shapeList.get(i),i);
+                for (int i = shapeList.size()-1; i>=0;i--){
+                    if (shapeList.get(i).getlock() == false) availableList(shapeList.get(i),i);
+                }
+
                 UI();
                 break;
             case "Move()":
@@ -205,10 +203,10 @@ public class Clevis {
                     sc = new Scanner(System.in);
                     name = sc.nextLine();
                     found = match(this.shapeList,name);
-                    if (found != -1){
+                    if (found != -1 && shapeList.get(found).getlock() == false){
                         shapeList.get(found).setlock();
                         groupped_name.addintogroup(shapeList.get(found));
-                    }else System.out.println("There is no shape call: " + name);
+                    }else System.out.println("There is no shape call: " + name + "or the shape " + name +" is locked");
                     UI();
                     System.out.println("Continue to add?\nType 'yes' to continue\nType 'no' to stop adding");
                     sc = new Scanner(System.in);
