@@ -13,6 +13,7 @@ public class Application {
         for (int i = 0; i < x.length ; i++){
             System.out.println(i + " : " + x[i] );
         }
+        System.out.println("-------------------\n");
         Scanner inputobj = new Scanner(System.in);
         System.out.println("Input your command: ");
         int input = inputobj.nextInt();

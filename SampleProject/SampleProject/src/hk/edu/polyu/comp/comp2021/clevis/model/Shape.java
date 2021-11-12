@@ -31,7 +31,7 @@ public abstract class Shape {
         this.islock = true;
     }
     public void unlock(){
-        this.islock = true;
+        this.islock = false;
     }
 }
 
@@ -141,6 +141,9 @@ class Groupped extends Shape{
             System.out.println(lock.get(i).getStartY());
             System.out.println(lock.get(i).getlock());
         }
+    }
+    public String getgpname(){
+        return lock.get(0).getName();
     }
     ArrayList<Coordination> getPoints(){return null;};
 
