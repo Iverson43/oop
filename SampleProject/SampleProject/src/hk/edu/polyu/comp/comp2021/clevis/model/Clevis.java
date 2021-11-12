@@ -162,7 +162,17 @@ public class Clevis {
                 System.out.println("Please input the units to move "+name+" vertically: ");
                 double dy = sc.nextDouble();
                 if (found != -1) {
-                    move(shapeList.get(found),dx, dy);
+                    temp = shapeList.get(found);
+                    if (temp instanceof Groupped)
+                        for (Shape each: ((Groupped) temp).lock) move(temp,dx, dy);
+                    else if (temp.getlock()){
+                        for (Shape s: shapeList){
+                            if (s instanceof Groupped )
+                                if (((Groupped) s).lock.contains(temp)){
+                                    for (Shape each: ((Groupped) temp).lock) move(temp,dx, dy);
+                                }
+                        }
+                    }else move(temp,dx, dy);
                 }
                 UI();
                 break;
