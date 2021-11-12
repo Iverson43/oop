@@ -10,11 +10,15 @@ public class Clevis {
         shapeList = new ArrayList<Shape>();
         count = 0;
     }
+
     public int match(ArrayList<Shape> x, String y){
         for (int i = 0 ; i < count ; i++){
             if (x.get(i).getName().equals(y)) return i;
         }
         return -1;
+    }
+    public void UI(){
+        System.out.println("-------------------\n");
     }
     public void listPrint(Shape s){
         System.out.println("Name: "+s.getName());
@@ -35,6 +39,7 @@ public class Clevis {
         }else{
             //For grouped element
         }
+        UI();
     }
     public void move(Shape s, double dx, double dy){
         s.move(dx,dy);
@@ -54,8 +59,10 @@ public class Clevis {
                 double width = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s hight");
                 double hight = sc.nextDouble();
+                UI();
                 shapeList.add(new Rectangle(name,xcoord,ycoord,width,hight));
                 count++;
+                UI();
                 break;
             case "Line()":
                 System.out.println("Please input your " + x + "'s name");
@@ -69,8 +76,10 @@ public class Clevis {
                 double endx = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s endting y coordinate");
                 double endy = sc.nextDouble();
+                UI();
                 shapeList.add(new Line(name,startx,starty,endx,endy)) ;
                 count++;
+                UI();
                 break;
             case "Circle()":
                 System.out.println("Please input your " + x + "'s name");
@@ -82,8 +91,10 @@ public class Clevis {
                 double centery = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s radius");
                 double radius = sc.nextDouble();
+                UI();
                 shapeList.add(new Circle(name,centerx,centery,radius)) ;
                 count++;
+                UI();
                 break;
             case "Square()":
                 System.out.println("Please input your " + x + "'s name");
@@ -95,11 +106,14 @@ public class Clevis {
                 double sqy = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s width");
                 double sqw = sc.nextDouble();
+                UI();
                 shapeList.add(new Square(name,sqx,sqy,sqw));
                 count++;
+                UI();
                 break;
             case "Delete()":
                 System.out.println("Please input the name of the shape you want to delete: ");
+                UI();
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
                 int found = match(this.shapeList,name);
@@ -110,6 +124,7 @@ public class Clevis {
                 }
 
                 else System.out.println("The shape " + name + " is not exsit");
+                UI();
                 break;
             case "List()":
                 System.out.println("Please input the name of the shape you want to see it information");
@@ -118,7 +133,10 @@ public class Clevis {
                 found = match(this.shapeList,name);
                 if (found != -1)
                     listPrint(shapeList.get(found));
+
                 //Group list - unfinished
+                UI();
+                break;
             case "Listall()":
                 for (int i = shapeList.size()-1; i>=0;i--)
                     listPrint(shapeList.get(i));
@@ -148,7 +166,8 @@ public class Clevis {
                 //pick have not done
 
                 //move
-
+                UI();
+                break;
 
             case "Group()":
                 System.out.println("Please input the name of the grouped shape: ");
@@ -165,27 +184,35 @@ public class Clevis {
                     if (found != -1){
                         shapeList.get(found).setlock();
                         groupped_name.addintogroup(shapeList.get(found));
-                    }
+                    }else System.out.println("There is no shape call: " + name);
+                    UI();
                     System.out.println("Continue to add?\nType 'yes' to continue\nType 'no' to stop adding");
                     sc = new Scanner(System.in);
                     String Continue = sc.nextLine();
                     if(Continue.equals("yes")) continue;
                     else finish_input = true;
+                    UI();
                 }
 
                 shapeList.add(groupped_name);
-                groupped_name.printtest();
+
+                UI();
+                break;
             case "Ungroup()":
                 System.out.println("Please input the name of the shape you want to ungroup");
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
+                boolean hvgp = false;
                 for (int i = 0; i < shapeList.size(); i++){
                     if(shapeList.get(i).getClass().getSimpleName().equals("Groupped")){
                         if (shapeList.get(0).getName().equals(name)){
                             ((Groupped)shapeList.get(i)).ungroup();
+                            hvgp = true;
                         }
                     }
                 }
+                if (!hvgp) System.out.println("There is not grouped shape call: "+ name +" please try again" );
+                UI();
         }
 
     }
