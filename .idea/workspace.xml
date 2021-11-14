@@ -1,39 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f68833b9-147f-483a-bd2c-b815eef19a42" name="Changes" comment="">
-<<<<<<< Updated upstream
+    <list default="true" id="df28c186-640e-4007-bb05-5e8c50952a30" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloTesting.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" afterDir="false" />
->>>>>>> Stashed changes
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Coordination.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Coordination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop/hk/edu/polyu/comp/comp2021/clevis/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop/hk/edu/polyu/comp/comp2021/clevis/model/Circle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop/hk/edu/polyu/comp/comp2021/clevis/model/Coordination.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop/hk/edu/polyu/comp/comp2021/clevis/model/Groupped.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop/hk/edu/polyu/comp/comp2021/clevis/model/Line.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop/hk/edu/polyu/comp/comp2021/clevis/model/Rectangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop/hk/edu/polyu/comp/comp2021/clevis/model/Shape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop/hk/edu/polyu/comp/comp2021/clevis/model/Square.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/oop/hk/edu/polyu/comp/comp2021/clevis/model/ClevisTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/oop/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="20XAdNMFYpT79DdTiNpdMxdBfqv" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="20u4rt2TbhfS7XkpEwkBY1KOy0E" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,11 +34,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.clevis.Application" />
       <module name="oop" />
@@ -60,86 +49,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClevisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="oop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.clevis.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model" />
-      <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model.ClevisTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShapeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="oop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.clevis.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model" />
-      <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model.ShapeTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShapeTest.testLineConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="oop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.clevis.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model" />
-      <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model.ShapeTest" />
-      <option name="METHOD_NAME" value="testLineConstructor" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShapeTest.testRectangleConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="oop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.clevis.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model" />
-      <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model.ShapeTest" />
-      <option name="METHOD_NAME" value="testRectangleConstructor" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
-        <item itemvalue="JUnit.ClevisTest" />
-        <item itemvalue="JUnit.ShapeTest" />
-        <item itemvalue="JUnit.ShapeTest.testLineConstructor" />
-        <item itemvalue="JUnit.ShapeTest.testRectangleConstructor" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f68833b9-147f-483a-bd2c-b815eef19a42" name="Changes" comment="" />
-      <created>1636180645339</created>
+      <changelist id="df28c186-640e-4007-bb05-5e8c50952a30" name="Default Changelist" comment="" />
+      <created>1636881340908</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1636180645339</updated>
+      <updated>1636881340908</updated>
     </task>
     <servers />
   </component>
@@ -153,6 +76,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
