@@ -20,10 +20,6 @@ public class Clevis {
             html = "log.html";
             txt = "log.txt";
         }
-        else {
-            this.html = html;
-            this.txt = txt;
-        }
 
     }
     public int match(ArrayList<Shape> x, String y){
@@ -306,6 +302,4 @@ public class Clevis {
         }
 
     }
-    candice
-
 }
