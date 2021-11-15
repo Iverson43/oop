@@ -19,6 +19,7 @@ public abstract class Shape {
     Coordination getTopLeft() {return topLeft;}
     boolean getlock() {return islock;}
     abstract ArrayList<Coordination> getPoints();
+<<<<<<< Updated upstream
 
     public void move(double dx, double dy) {
         topLeft = new Coordination(topLeft.getX()+dx , topLeft.getY()+dy);
@@ -35,6 +36,8 @@ public abstract class Shape {
         Boundary b = new Boundary(other);
         return a.isIntercept(b);
     }
+=======
+>>>>>>> Stashed changes
 }
 
 class Line extends Shape{

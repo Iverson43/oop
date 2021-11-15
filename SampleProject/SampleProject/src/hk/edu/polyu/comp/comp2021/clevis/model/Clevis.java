@@ -515,4 +515,38 @@ public class Clevis {
         }
 
     }
+<<<<<<< Updated upstream
+=======
+
+    public void delete(String name){
+        for (Shape item: shapeList){
+            if(name == item.getName()) {shapeList.remove(item);return;}
+        }
+    }
+
+    /*public void list(String name){
+        for (Shape item: shapeList){
+            if(name == item.getName()){
+                if (item instanceof Rectangle)
+            }
+        }
+    }*/
+
+    public void group(String n, String[] ungroupList){
+        if(ungroupList.length==0 || ungroupList==null)
+            throw new IllegalArgumentException();
+        ArrayList<Shape> groupList = new ArrayList<>();
+        for (String name: ungroupList){
+            for (Shape item: shapeList){
+                if(name == item.getName()){
+                    groupList.add(item);
+                    continue;
+                }
+            }
+        }
+
+
+    }
+
+>>>>>>> Stashed changes
 }

@@ -39,7 +39,7 @@ public class Application {
         }
 
         boolean leave = false;
-        while (leave == false){
+        while (!leave){
             int Input = printmenu(operation_command);
             x.write(operation_command[Input]);
             switch(Input)
