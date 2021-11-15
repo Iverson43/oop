@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f68833b9-147f-483a-bd2c-b815eef19a42" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Margin.java" beforeDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ShapeTest.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/oop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oop.iml" afterDir="false" />
+>>>>>>> 8aeff83d4c0c5639552689000d4ae4c3e13f9418
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +38,22 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ClevisTest.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" root0="FORCE_HIGHLIGHTING" />
+<<<<<<< HEAD
     <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/operation.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" root0="FORCE_HIGHLIGHTING" />
+=======
+>>>>>>> 8aeff83d4c0c5639552689000d4ae4c3e13f9418
+    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/test/hk/edu/polyu/comp/comp2021/clevis/model/ClevisTest.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Coordination.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Boundary.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/operation.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" root0="FORCE_HIGHLIGHTING" />
+<<<<<<< HEAD
+    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" root0="FORCE_HIGHLIGHTING" />
+=======
+    <setting file="file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" root0="FORCE_HIGHLIGHTING" />
+>>>>>>> 8aeff83d4c0c5639552689000d4ae4c3e13f9418
   </component>
   <component name="ProjectId" id="20XAdNMFYpT79DdTiNpdMxdBfqv" />
   <component name="ProjectLevelVcsManager">
