@@ -6,18 +6,17 @@ import java.util.ArrayList;
 public abstract class Shape {
 
     // The name and anchor of a Shape
-    private String name;
+    private final String name;
     private Coordination topLeft;
     private boolean islock;
     Shape(String n, double a, double b) {
         this.name = n;
         this.topLeft = new Coordination(a,b);
+    }
 
-    };
     //Returns the name and coordination of a Shape
     String getName() {return name;}
     Coordination getTopLeft() {return topLeft;}
-<<<<<<< Updated upstream
     boolean getlock() {return islock;}
     abstract ArrayList<Coordination> getPoints();
 
@@ -30,31 +29,21 @@ public abstract class Shape {
     public void unlock(){
         this.islock = false;
     }
-=======
 
-    //Move the Shape
-    public void move(double dx, double dy) {
-        topLeft = new Coordination(topLeft.getX()+dx , topLeft.getY()+dy);
+    public boolean isIntercept(Shape other) {
+        Boundary a = new Boundary(this);
+        Boundary b = new Boundary(other);
+        return a.isIntercept(b);
     }
-
-    // Abstract Methods
-    abstract ArrayList<Coordination> getPoints();
->>>>>>> Stashed changes
 }
 
 class Line extends Shape{
 
-<<<<<<< Updated upstream
     private Coordination bottomRight;
-    private Boundary boundary;
-=======
-    private Coordination bottomRight; //Another end's coordination
->>>>>>> Stashed changes
 
     Line(String n, double x1, double y1, double x2, double y2) {
         super(n, x1, y1);
         this.bottomRight = new Coordination(x2,y2);
-        this.boundary = new Boundary(this);
     }
 
     // Returns another end of a Line
@@ -72,12 +61,13 @@ class Line extends Shape{
     public void moveEnd(double dx, double dy) {
         bottomRight = new Coordination(bottomRight.getX()+dx, bottomRight.getY()+dy);
     }
+
 }
 
 class Circle extends Shape{
 
     //The radian of a circle
-    private double radius;
+    private final double radius;
 
     Circle(String n, double x, double y, double r) {
         super(n, x, y);
@@ -85,13 +75,10 @@ class Circle extends Shape{
     }
 
     //Return the radian of a circle
-<<<<<<< Updated upstream
     double getRadius() {return radius;}
-=======
-    double getRadian() {return radian;}
+
 
     //Return the coordination of centre.
->>>>>>> Stashed changes
     ArrayList<Coordination> getPoints() {
         ArrayList<Coordination> result = new ArrayList<>();
         result.add(this.getTopLeft());
@@ -102,15 +89,15 @@ class Circle extends Shape{
 class Rectangle extends Shape {
 
     // The height and width for a rectangle.
-    private double width;
-    private double height;
+    private final double width;
+    private final double height;
 
     Rectangle(String n, double x, double y, double w, double h) {
         super(n, x, y);
         this.width = w;
         this.height = h;
         this.toString();
-    };
+    }
 
     // Returns width and height of a Rectangle
     double getWidth() {return width;}
@@ -141,6 +128,7 @@ class Groupped extends Shape{
 
         super(x, 0 , 0);
         lock = new ArrayList<Shape>();
+        this.getlock();
         lock.add(this);
     }
     public void addintogroup(Shape y){
@@ -155,14 +143,15 @@ class Groupped extends Shape{
     public void printtest(){
         for(int i=0; i< lock.size();i++){
             System.out.println(lock.get(i).getName());
-            System.out.println(lock.get(i).getStartX());
-            System.out.println(lock.get(i).getStartY());
+            System.out.println(lock.get(i).getTopLeft().getX());
+            System.out.println(lock.get(i).getTopLeft().getY());
             System.out.println(lock.get(i).getlock());
         }
     }
     public String getgpname(){
         return lock.get(0).getName();
     }
-    ArrayList<Coordination> getPoints(){return null;};
+    public  ArrayList<Shape> returnlist(){return lock;}
+    ArrayList<Coordination> getPoints(){return null;}
 
 }

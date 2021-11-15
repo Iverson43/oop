@@ -1,6 +1,5 @@
 package hk.edu.polyu.comp.comp2021.clevis.model;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -33,15 +32,9 @@ public class ShapeTest {
     @Test
     public void testCircleConstructor(){
         assertEquals("C01", c01.getName());
-<<<<<<< Updated upstream
-        assertEquals(9.01,c01.getStartX(),2);
-        assertEquals(8.31,c01.getStartY(),0);
-        assertEquals(3.56,c01.getRadius(),2);
-=======
         assertEquals(9.01,c01.getTopLeft().getX(),2);
         assertEquals(8.31,c01.getTopLeft().getY(),0);
-        assertEquals(3.56,c01.getRadian(),2);
->>>>>>> Stashed changes
+        assertEquals(3.56,c01.getRadius(),2);
     }
 
     @Test
