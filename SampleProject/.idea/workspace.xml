@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Coordination.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Coordination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Desktop/SampleProject_can" />
   </component>
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">

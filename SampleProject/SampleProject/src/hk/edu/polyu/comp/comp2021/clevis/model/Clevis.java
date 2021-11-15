@@ -10,11 +10,21 @@ public class Clevis {
 
     int count ;
 
-    String html, txt;
+    public String html, txt;
 
     public Clevis(){
         shapeList = new ArrayList<Shape>();
         count = 0;
+        orderRecord = new ArrayList<>();
+        if ( html == null || txt == null){
+            html = "log.html";
+            txt = "log.txt";
+        }
+        else {
+            this.html = html;
+            this.txt = txt;
+        }
+
     }
     public int match(ArrayList<Shape> x, String y){
         for (int i = 0 ; i < count ; i++){
@@ -183,7 +193,7 @@ public class Clevis {
                     count --;
                     System.out.println("The shape " + name + " is deleted");
                 }
-                else System.out.println("The shape " + name + " is not exsit");
+                else System.out.println("The shape " + name + " is not exist");
                 UI();
                 break;
             case "List()":
@@ -241,6 +251,7 @@ public class Clevis {
                 //pick have not done
 
                 //move
+
                 UI();
                 break;
 
@@ -293,6 +304,11 @@ public class Clevis {
 
                 break;
         }
+
+    }
+
+
+    public static void main(String[] args) {
 
     }
 

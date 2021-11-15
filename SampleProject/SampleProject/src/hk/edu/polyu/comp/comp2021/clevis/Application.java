@@ -28,7 +28,12 @@ public class Application {
         System.out.println("======================" );
         String[] operation_command = new String[]{"Rectangle()","Line()","Circle()","Square()" , "Group()","Ungroup()",
         "Delete()","Boundingbox()","Move()","Pick_and_move()","Intersect()","List()","Listall()","Quit()"};
+
         Clevis x = new Clevis();
+        if (args.length==4){
+            x.html = args[1];
+            x.txt = args[3];
+        }
 
         boolean leave = false;
         while (leave == false){
