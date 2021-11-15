@@ -332,14 +332,23 @@ public class Clevis {
                     System.out.println("Please input the units to move the picked shape vertically: ");
                     double dy = sc.nextDouble();
                     //pick have not done
-
+                    boolean ispick = false;
                     for (int i = shapeList.size() -1; i >=0; i-- ){
                         Shape pmtemp = shapeList.get(i);
                         if (pmtemp.getlock() == false){
-                            if (shapeList.get(i) instanceof Rectangle || shapeList.get(i) instanceof Square){
-                                
+                            if (pmtemp instanceof Circle){
+                                Coordination pmx = pmtemp.getTopLeft();
+                                double pmtemp1 = px-pmx.getX();
+                                double pmtemp2 = py-pmx.getY();
+                                if (Math.sqrt(pmtemp1*pmtemp1+pmtemp2*pmtemp2)-((Circle) pmtemp).getRadius() < 0.05){
+                                    move(pmtemp,dx,dy);
+                                }
                             }
                         }
+                    }
+                    if (ispick == false){
+                        String output1 = String.format("There is no successful pick with %.2f ,%.2f Please try again",px,py);
+                        System.out.println(output1);
                     }
                     //move
 
