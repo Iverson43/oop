@@ -242,7 +242,7 @@ public class Clevis {
                 else System.out.println("The grouped shape: " + name +" has been unlocked");
                 UI();
 
-                if (found == false ) System.out.println("The shape " + name + " is not exist");
+                if (hvgp == false ) System.out.println("The shape " + name + " is not exist");
 
                 break;
         }
