@@ -21,6 +21,23 @@ public class Boundary {
         }
         return null;
     }
+
+    public BoundaryLine[] getLines() {return lines;}
+
+    public boolean isIntercept(Boundary other) {
+        BoundaryLine[] a = this.getLines();
+        BoundaryLine[] b = other.getLines();
+        for (BoundaryLine i: a) {
+            if (i instanceof StraightLine) {
+                for (BoundaryLine j: b) {
+                    if (j instanceof StraightLine) {
+                        if (!i.isIntercept((StraightLine) j)) return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 }
 
 interface BoundaryLine {
@@ -34,7 +51,7 @@ class StraightLine implements BoundaryLine{
     }
 
     // Store Coordination
-    private Coordination c[];
+    private Coordination[] c;
 
     // If the line is diagonal
     private double slope;
@@ -43,12 +60,12 @@ class StraightLine implements BoundaryLine{
     // If the line is horizontal or vertical
     private LineType type;
 
-    StraightLine(Coordination coord[]) {
+    StraightLine(Coordination[] coord) {
         this.setLine(coord);
     }
 
     // Initialize and change the line
-    void setLine(Coordination coord[]) {
+    void setLine(Coordination[] coord) {
         if (coord[0].yDisplacement(coord[1]) == 0) {
             this.type = LineType.HORIZONTAL;
         }
