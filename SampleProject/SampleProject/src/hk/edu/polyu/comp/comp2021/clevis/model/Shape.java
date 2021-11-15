@@ -12,7 +12,6 @@ public abstract class Shape {
     Shape(String n, double a, double b) {
         this.name = n;
         this.topLeft = new Coordination(a,b);
-
     }
 
     //Returns the name and coordination of a Shape
