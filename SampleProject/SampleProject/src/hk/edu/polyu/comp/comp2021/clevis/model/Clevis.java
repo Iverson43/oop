@@ -122,10 +122,6 @@ public class Clevis {
                 System.out.println("Please input your " + x + "'s name");
                 Scanner sc = new Scanner(System.in);
                 String name = sc.nextLine();
-                while(match(this.shapeList,name)!= -1){
-                    System.out.println("Name: " + name + "has been already used please try again");
-                    name = sc.nextLine();
-                }
                 System.out.println( "Please input " + name + "'s top left x coordinate");
                 double xcoord = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s top left y coordinate");
@@ -138,16 +134,11 @@ public class Clevis {
                 shapeList.add(new Rectangle(name,xcoord,ycoord,width,hight));
                 count++;
                 UI();
-
                 break;
             case "Line()":
                 System.out.println("Please input your " + x + "'s name");
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
-                while(match(this.shapeList,name)!= -1){
-                    System.out.println("Name: " + name + "has been already used please try again");
-                    name = sc.nextLine();
-                }
                 System.out.println( "Please input " + name + "'s starting x coordinate");
                 double startx = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s starting y coordinate");
@@ -160,16 +151,11 @@ public class Clevis {
                 shapeList.add(new Line(name,startx,starty,endx,endy)) ;
                 count++;
                 UI();
-
                 break;
             case "Circle()":
                 System.out.println("Please input your " + x + "'s name");
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
-                while(match(this.shapeList,name)!= -1){
-                    System.out.println("Name: " + name + "has been already used please try again");
-                    name = sc.nextLine();
-                }
                 System.out.println( "Please input " + name + "'s center x coordinate");
                 double centerx = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s center y coordinate");
@@ -180,16 +166,11 @@ public class Clevis {
                 shapeList.add(new Circle(name,centerx,centery,radius)) ;
                 count++;
                 UI();
-
                 break;
             case "Square()":
                 System.out.println("Please input your " + x + "'s name");
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
-                while(match(this.shapeList,name)!= -1){
-                    System.out.println("Name: " + x + "has been already used please try again");
-                    name = sc.nextLine();
-                }
                 System.out.println( "Please input " + name + "'s top left x coordinate");
                 double sqx = sc.nextDouble();
                 System.out.println( "Please input " + name + "'s top left y coordinate");
@@ -200,200 +181,131 @@ public class Clevis {
                 shapeList.add(new Square(name,sqx,sqy,sqw));
                 count++;
                 UI();
-
                 break;
             case "Delete()":
-                if(shapeList.size() != 0){
-                    System.out.println("Please input the name of the shape you want to delete: ");
-                    sc = new Scanner(System.in);
-                    name = sc.nextLine();
-                    int found = match(this.shapeList,name);
-                    UI();
-                    if (found != -1 && shapeList.get(found).getlock() == false){
-                        shapeList.remove(found);
-                        count --;
-                        System.out.println("The shape " + name + " is deleted");
-                    }
-                    else System.out.println("The shape " + name + " is not exist");
-                    UI();
-
-                    break;
-                }else{
-                    System.out.println("The shape is empty Please add some shapes before using Delete()");
-                    break;
+                System.out.println("Please input the name of the shape you want to delete: ");
+                sc = new Scanner(System.in);
+                name = sc.nextLine();
+                int found = match(this.shapeList,name);
+                UI();
+                if (found != -1 && shapeList.get(found).getlock() == false){
+                    shapeList.remove(found);
+                    count --;
+                    System.out.println("The shape " + name + " is deleted");
                 }
-<<<<<<< HEAD
-
-=======
                 else System.out.println("The shape " + name + " is not exist");
                 UI();
                 break;
->>>>>>> 8aeff83d4c0c5639552689000d4ae4c3e13f9418
             case "List()":
-                if(shapeList.size() != 0){
-                    System.out.println("Please input the name of the shape you want to see it information");
-                    sc = new Scanner(System.in);
-                    name = sc.nextLine();
-                    int found = match(this.shapeList,name);
-
-                    UI();
-                    Shape temp;
-                    if (found != -1 && shapeList.get(found).getlock() == false) {
-                        availableList(shapeList.get(found),found);
-                    }
-                    UI();
-
-                    break;
-                }else{
-                    System.out.println("The shape is empty Please add some shapes before using List()");
-
-                    UI();
-                    break;
+                System.out.println("Please input the name of the shape you want to see it information");
+                sc = new Scanner(System.in);
+                name = sc.nextLine();
+                found = match(this.shapeList,name);
+                UI();
+                Shape temp;
+                if (found != -1 && shapeList.get(found).getlock() == false) {
+                    availableList(shapeList.get(found),found);
                 }
-
+                UI();
+                break;
             case "Listall()":
-                if(shapeList.size()!=0){
-                    for (int i = shapeList.size()-1; i>=0;i--){
-                        if (shapeList.get(i).getlock() == false) availableList(shapeList.get(i),i);
-                    }
-
-                    UI();
-                    break;
-                }else{
-                    System.out.println("The shape is empty Please add some shapes before using Listall()");
-                    UI();
-                    break;
+                for (int i = shapeList.size()-1; i>=0;i--){
+                    if (shapeList.get(i).getlock() == false) availableList(shapeList.get(i),i);
                 }
 
-
-
-
+                UI();
+                break;
             case "Move()":
-                if(shapeList.size() != 0){
-                    System.out.println("Please input the name of the shape you want to move: ");
-                    sc = new Scanner(System.in);
-                    name = sc.nextLine();
-                    sc.close();
-                    int found = match(this.shapeList,name);
-                    UI();
-                    System.out.println("Please input the units to move "+name+" horizontally: ");
-                    double dx = sc.nextDouble();
-                    System.out.println("Please input the units to move "+name+" vertically: ");
-                    double dy = sc.nextDouble();
-                    if (found != -1) {
-                        Shape temp = shapeList.get(found);
-                        if (temp instanceof Groupped)
-                            moveGroup((Groupped) temp, dx, dy);
-                        else if (temp.getlock()){
-                            for (Groupped s: getGroupedList())
-                                if (s.lock.contains(temp))
-                                    moveGroup(s, dx, dy);
-                        }else move(temp,dx, dy);
-                    }
-                    UI();
-
-                    break;
-                }else{
-                    System.out.println("The shape is empty Please add some shapes before using Move()");
-                    UI();
-                    break;
+                System.out.println("Please input the name of the shape you want to move: ");
+                sc = new Scanner(System.in);
+                name = sc.nextLine();
+                found = match(this.shapeList,name);
+                UI();
+                System.out.println("Please input the units to move "+name+" horizontally: ");
+                double dx = sc.nextDouble();
+                System.out.println("Please input the units to move "+name+" vertically: ");
+                double dy = sc.nextDouble();
+                if (found != -1) {
+                    temp = shapeList.get(found);
+                    if (temp instanceof Groupped)
+                        moveGroup((Groupped) temp, dx, dy);
+                    else if (temp.getlock()){
+                        for (Groupped s: getGroupedList())
+                            if (s.lock.contains(temp))
+                                moveGroup(s, dx, dy);
+                    }else move(temp,dx, dy);
                 }
-
+                UI();
+                break;
             case "Pick_and_move()":
                 System.out.println("Please input the x coordinate of picked point: ");
                 sc = new Scanner(System.in);
                 double px = sc.nextDouble();
                 System.out.println( "Please input the y coordinate of picked point: ");
                 double py = sc.nextDouble();
-
                 UI();
                 System.out.println("Please input the units to move the picked shape horizontally: ");
-                double dx = sc.nextDouble();
+                dx = sc.nextDouble();
                 System.out.println("Please input the units to move the picked shape vertically: ");
-                double dy = sc.nextDouble();
-
+                dy = sc.nextDouble();
                 //pick have not done
 
                 //move
 
                 UI();
-
                 break;
 
             case "Group()":
-                if (shapeList.size() !=0){
-                    System.out.println("Please input the name of the grouped shape: ");
-                    sc = new Scanner(System.in);
-                    String groupname = sc.nextLine();
-                    boolean finish_input = false;
-                    int found = match(this.shapeList,groupname);
-                    while (match(this.shapeList,groupname)!= -1){
-                        System.out.println("The name: " + groupname + " has been used please another name");
-                        groupname = sc.nextLine();
+                System.out.println("Please input the name of the grouped shape: ");
+                sc = new Scanner(System.in);
+                String groupname = sc.nextLine();
+                boolean finish_input = false;
+                Groupped groupped_name = new Groupped(groupname);
 
-                    }
-                    Groupped groupped_name = new Groupped(groupname);
-
-                    while(finish_input == false){
-                        System.out.println("Please input the name of the shape you want to group");
-                        sc = new Scanner(System.in);
-                        name = sc.nextLine();
-                        found = match(this.shapeList,name);
-                        if (found != -1 && shapeList.get(found).getlock() == false){
-                            shapeList.get(found).setlock();
-                            groupped_name.addintogroup(shapeList.get(found));
-                        }else System.out.println("There is no shape call: " + name + "or the shape " + name +" is locked");
-                        UI();
-                        System.out.println("Continue to add?\nType 'yes' to continue\nType 'no' to stop adding");
-                        sc = new Scanner(System.in);
-                        String Continue = sc.nextLine();
-                        if(Continue.equals("yes")) continue;
-                        else finish_input = true;
-                    }
-
-                    shapeList.add(groupped_name);
-                    UI();
-                }else{
-                    System.out.println("The shape is empty Please add some shapes before using Group()");
-                    UI();
-                    break;
-                }
-
-
-                break;
-            case "Ungroup()":
-                if(shapeList.size()!= 0){
-                    System.out.println("Please input the name of the shape you want to ungroup");
+                while(finish_input == false){
+                    System.out.println("Please input the name of the shape you want to group");
                     sc = new Scanner(System.in);
                     name = sc.nextLine();
-                    boolean hvgp = false;
-                    for (int i = 0; i < shapeList.size(); i++){
-                        if(shapeList.get(i) instanceof Groupped){
-                            if (((Groupped) shapeList.get(i)).getgpname().equals(name)){
-                                ((Groupped)shapeList.get(i)).ungroup();
-                                hvgp = true;
-                            }
-                        }
-                    }
+                    found = match(this.shapeList,name);
+                    if (found != -1 && shapeList.get(found).getlock() == false){
+                        shapeList.get(found).setlock();
+                        groupped_name.addintogroup(shapeList.get(found));
+                    }else System.out.println("There is no shape call: " + name + "or the shape " + name +" is locked");
                     UI();
-                    if (!hvgp) System.out.println("There is no grouped shape call: " + name + " please try again");
-                    else System.out.println("The grouped shape: " + name +" has been unlocked");
-                    UI();
-                    break;
-                }else{
-                    System.out.println("The shape is empty Please add some shapes before using Ungroup()");
-                    UI();
-                    break;
+                    System.out.println("Continue to add?\nType 'yes' to continue\nType 'no' to stop adding");
+                    sc = new Scanner(System.in);
+                    String Continue = sc.nextLine();
+                    if(Continue.equals("yes")) continue;
+                    else finish_input = true;
                 }
 
+                shapeList.add(groupped_name);
+                UI();
+                break;
+            case "Ungroup()":
+                System.out.println("Please input the name of the shape you want to ungroup");
+                sc = new Scanner(System.in);
+                name = sc.nextLine();
+                boolean hvgp = false;
+                for (int i = 0; i < shapeList.size(); i++){
+                    if(shapeList.get(i) instanceof Groupped){
+                        if (((Groupped) shapeList.get(i)).getgpname().equals(name)){
+                            ((Groupped)shapeList.get(i)).ungroup();
+                            hvgp = true;
+                        }
+                    }
+                }
+                UI();
+                if (!hvgp) System.out.println("There is no grouped shape call: " + name + " please try again");
+                else System.out.println("The grouped shape: " + name +" has been unlocked");
+                UI();
 
+                if (hvgp == false ) System.out.println("The shape " + name + " is not exist");
+
+                break;
         }
 
     }
-
-
-    public static void main(String[] args) {
-
-    }
+    candice
 
 }
