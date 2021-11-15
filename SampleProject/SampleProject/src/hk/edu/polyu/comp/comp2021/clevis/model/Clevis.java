@@ -54,20 +54,28 @@ public class Clevis {
             bounding_w = ((Circle) x).getRadius() *2;
             bounding_h = bounding_w;
             Coordination X = x.getTopLeft();
-            bounding_x = X.getX()+((Circle) x).getRadius();
+            bounding_x = X.getX()-((Circle) x).getRadius();
             bounding_y = X.getY()-((Circle) x).getRadius();
         }else if(x instanceof Line){
             Coordination X = x.getTopLeft();
             if (X.getY() > ((Line) x).getEndY()){
                 bounding_h = X.getY() - ((Line) x).getEndY();
-            }else {bounding_h = ((Line) x).getEndY() - X.getY();}
+                bounding_y = ((Line) x).getEndY();
+            }else {
+                bounding_h = ((Line) x).getEndY() - X.getY();
+                bounding_y = X.getY();
+            }
             if (X.getX() > ((Line) x).getEndX()){
                 bounding_w = X.getX() - ((Line) x).getEndX();
-            }else{bounding_w = ((Line) x).getEndX() - X.getX();}
+                bounding_x = ((Line) x).getEndX();
+            }else{
+                bounding_w = ((Line) x).getEndX() - X.getX();
+                bounding_h = X.getX();
+            }
         }
         result.add(bounding_x);
         result.add(bounding_y);
-        result.add(bounding_x-bounding_w);
+        result.add(bounding_x+bounding_w);
         result.add(bounding_y+bounding_h);
         result.add(bounding_w);
         result.add(bounding_h);
@@ -467,15 +475,18 @@ public class Clevis {
                             x2 = (double) temp5.get(i).get(2);
                             y2 = (double) temp5.get(i).get(3);
                             for (int j = i+1 ; j < temp5.size(); j++){
-                                if (x1 >(double) temp5.get(j).get(0)){
-                                    fx1 = x1;
-                                }else fx1 = (double) temp5.get(j).get(0);
-                                if (y1 > (double)temp5.get(j).get(1) ){
-                                    fy1 = y1;
-                                }else fy1 = (double)temp5.get(j).get(1);
+                                if (x1 <(double) temp5.get(j).get(0)){
+                                    fx1 = (double) temp5.get(j).get(0);
+                                }else fx1 = x1;
+
+                                if (y1 < (double)temp5.get(j).get(1) ){
+                                    fy1 = (double)temp5.get(j).get(1);
+                                }else fy1 = y1;
+
                                 if (x2 > (double)temp5.get(j).get(2) ){
                                     fx2 = x2;
                                 }else fx2 = (double)temp5.get(j).get(2);
+
                                 if (y2 > (double)temp5.get(j).get(3) ){
                                     fy2 = y2;
                                 }else fy2 = (double)temp5.get(j).get(3);

@@ -4,6 +4,7 @@
     <list default="true" id="d278bf13-ef2a-4d2a-bd29-e08341091487" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/SampleProject/hk/edu/polyu/comp/comp2021/clevis/model/Boundary.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +47,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BoundaryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SampleProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.clevis.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model" />
+      <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model.BoundaryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClevisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SampleProject" />
       <extension name="coverage">
@@ -79,8 +95,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Application" />
-        <item itemvalue="JUnit.ClevisTest" />
         <item itemvalue="JUnit.ShapeTest" />
+        <item itemvalue="JUnit.ClevisTest" />
+        <item itemvalue="JUnit.BoundaryTest" />
       </list>
     </recent_temporary>
   </component>
