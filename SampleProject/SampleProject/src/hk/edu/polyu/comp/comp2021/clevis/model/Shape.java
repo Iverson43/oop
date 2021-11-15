@@ -40,7 +40,7 @@ class Line extends Shape{
     Line(String n, double x1, double y1, double x2, double y2) {
         super(n, x1, y1);
         this.bottomRight = new Coordination(x2,y2);
-        this.boundary = new Boundary(this);
+
     }
 
     // Returns another end of a Line
