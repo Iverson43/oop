@@ -13,11 +13,11 @@ public abstract class Shape {
         this.name = n;
         this.topLeft = new Coordination(a,b);
 
-    };
+    }
     //Returns the name and coordination of a Shape
     String getName() {return name;}
     Coordination getTopLeft() {return topLeft;}
-<<<<<<< Updated upstream
+
     boolean getlock() {return islock;}
     abstract ArrayList<Coordination> getPoints();
 
@@ -30,26 +30,13 @@ public abstract class Shape {
     public void unlock(){
         this.islock = false;
     }
-=======
 
-    //Move the Shape
-    public void move(double dx, double dy) {
-        topLeft = new Coordination(topLeft.getX()+dx , topLeft.getY()+dy);
-    }
-
-    // Abstract Methods
-    abstract ArrayList<Coordination> getPoints();
->>>>>>> Stashed changes
 }
 
 class Line extends Shape{
 
-<<<<<<< Updated upstream
     private Coordination bottomRight;
     private Boundary boundary;
-=======
-    private Coordination bottomRight; //Another end's coordination
->>>>>>> Stashed changes
 
     Line(String n, double x1, double y1, double x2, double y2) {
         super(n, x1, y1);
@@ -85,13 +72,9 @@ class Circle extends Shape{
     }
 
     //Return the radian of a circle
-<<<<<<< Updated upstream
     double getRadius() {return radius;}
-=======
-    double getRadian() {return radian;}
 
     //Return the coordination of centre.
->>>>>>> Stashed changes
     ArrayList<Coordination> getPoints() {
         ArrayList<Coordination> result = new ArrayList<>();
         result.add(this.getTopLeft());
@@ -155,8 +138,8 @@ class Groupped extends Shape{
     public void printtest(){
         for(int i=0; i< lock.size();i++){
             System.out.println(lock.get(i).getName());
-            System.out.println(lock.get(i).getStartX());
-            System.out.println(lock.get(i).getStartY());
+            System.out.println(lock.get(i).getTopLeft().getX());
+            System.out.println(lock.get(i).getTopLeft().getY());
             System.out.println(lock.get(i).getlock());
         }
     }
