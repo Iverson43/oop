@@ -29,7 +29,7 @@ public class Clevis {
         return -1;
     }
     public void UI(){
-        System.out.println("-------------------\n");
+        System.out.println("----------------------------------------------\n");
     }
     public void read( ) throws IOException {
         this.orderRecord = new ArrayList<>();
@@ -39,6 +39,39 @@ public class Clevis {
             this.orderRecord.add(sc.nextLine());
         }
         sc.close();
+    }
+
+    public ArrayList<Double> bounding_result(Shape x){
+        double bounding_x = 0 , bounding_y= 0, bounding_w= 0, bounding_h= 0;
+        ArrayList<Double> result = new ArrayList<Double>();
+        if (x instanceof  Rectangle || x instanceof  Square){
+            bounding_w = ((Rectangle) x).getHeight();
+            bounding_h = ((Rectangle) x).getWidth();
+            Coordination X = x.getTopLeft();
+            bounding_x = X.getX();
+            bounding_y = X.getY();
+        }else if(x instanceof Circle){
+            bounding_w = ((Circle) x).getRadius() *2;
+            bounding_h = bounding_w;
+            Coordination X = x.getTopLeft();
+            bounding_x = X.getX()+((Circle) x).getRadius();
+            bounding_y = X.getY()-((Circle) x).getRadius();
+        }else if(x instanceof Line){
+            Coordination X = x.getTopLeft();
+            if (X.getY() > ((Line) x).getEndY()){
+                bounding_h = X.getY() - ((Line) x).getEndY();
+            }else {bounding_h = ((Line) x).getEndY() - X.getY();}
+            if (X.getX() > ((Line) x).getEndX()){
+                bounding_w = X.getX() - ((Line) x).getEndX();
+            }else{bounding_w = ((Line) x).getEndX() - X.getX();}
+        }
+        result.add(bounding_x);
+        result.add(bounding_y);
+        result.add(bounding_x-bounding_w);
+        result.add(bounding_y+bounding_h);
+        result.add(bounding_w);
+        result.add(bounding_h);
+        return result;
     }
 
     public void write(String command) throws IOException {
@@ -106,12 +139,18 @@ public class Clevis {
     public void moveGroup(Groupped s, double dx, double dy){
         for (Shape each: s.lock) move(each,dx,dy);
     }
+
     public ArrayList<Groupped> getGroupedList(){
         ArrayList<Groupped> groupedList = new ArrayList<Groupped>();
         for (Shape s: shapeList)
             if (s instanceof Groupped) groupedList.add((Groupped)s);
+
+        for (Shape k : groupedList){
+            System.out.println(k.getName());
+        }
         return groupedList;
     }
+
     public void add(String x){
         switch (x){
             case "Rectangle()":
@@ -294,6 +333,14 @@ public class Clevis {
                     double dy = sc.nextDouble();
                     //pick have not done
 
+                    for (int i = shapeList.size() -1; i >=0; i-- ){
+                        Shape pmtemp = shapeList.get(i);
+                        if (pmtemp.getlock() == false){
+                            if (shapeList.get(i) instanceof Rectangle || shapeList.get(i) instanceof Square){
+                                
+                            }
+                        }
+                    }
                     //move
 
                     UI();
@@ -310,7 +357,7 @@ public class Clevis {
                     System.out.println("Please input the name of the grouped shape: ");
                     sc = new Scanner(System.in);
                     String groupname = sc.nextLine();
-                    while(match(shapeList,groupname)!= 0){
+                    while(match(shapeList,groupname)!= -1){
                         System.out.println("The name: " + groupname+" has been used please try again");
                         groupname = sc.nextLine();
                     }
@@ -369,6 +416,79 @@ public class Clevis {
                 }
                 else{
                     System.out.println("The shape is empty Please add some shape before using Ungroup()");
+                    UI();
+                    break;
+                }
+            case "Boundingbox()":
+                getGroupedList();
+                if (shapeList.size() !=0){
+                    System.out.println("Please input the shape name you check the Bounding box: ");
+                    sc = new Scanner(System.in);
+                    name = sc.nextLine();
+                    while(match(shapeList,name) == -1){
+                        System.out.println("There is no such shape call: " + name +" Please try again");
+                        name = sc.nextLine();
+                    }
+                    double bounding_x, bounding_y, bounding_w, bounding_h;
+                    Shape temp2 = shapeList.get(match(this.shapeList,name));
+                    if (temp2 instanceof  Groupped == false){
+                        ArrayList<Double> temp4 = bounding_result(temp2);
+                        double x1 ,y1 ,x2 ,y2;
+                        x1 = (double) temp4.get(0);
+                        y1 = (double) temp4.get(1);
+                        x2 = (double) temp4.get(4);
+                        y2 = (double) temp4.get(5);
+                        String output = String.format("The top-left corner of shape%s is %.2f,%.2f",name,x1,y1);
+                        System.out.println(output);
+                        System.out.println("The width of bounding box is " + x2);
+                        System.out.println("The hight of bounding box is " + y2);
+                    }
+                    else if(temp2 instanceof Groupped){
+                        ArrayList<Shape> temp_gplist = ((Groupped) temp2).returnlist();
+                        ArrayList<ArrayList> temp5 = new ArrayList<ArrayList>();
+                        for (int i = 1; i < temp_gplist.size(); i++){
+                            ArrayList<Double> temp4 = bounding_result(temp_gplist.get(i));
+                            temp5.add(temp4);
+                        }
+                        double x1 ,y1 ,x2 ,y2;
+                        double fx1 = 0 ,fy1 = 0 ,fx2=0 ,fy2 = 0;
+                        for (int i = 0 ; i < temp5.size()-1; i++){
+                            x1 = (double) temp5.get(i).get(0);
+                            y1 = (double) temp5.get(i).get(1);
+                            x2 = (double) temp5.get(i).get(2);
+                            y2 = (double) temp5.get(i).get(3);
+                            for (int j = i+1 ; j < temp5.size(); j++){
+                                if (x1 >(double) temp5.get(j).get(0)){
+                                    fx1 = x1;
+                                }else fx1 = (double) temp5.get(j).get(0);
+                                if (y1 > (double)temp5.get(j).get(1) ){
+                                    fy1 = y1;
+                                }else fy1 = (double)temp5.get(j).get(1);
+                                if (x2 > (double)temp5.get(j).get(2) ){
+                                    fx2 = x2;
+                                }else fx2 = (double)temp5.get(j).get(2);
+                                if (y2 > (double)temp5.get(j).get(3) ){
+                                    fy2 = y2;
+                                }else fy2 = (double)temp5.get(j).get(3);
+                            }
+                        }
+                        String output = String.format("The top-left corner of shape%s is %.2f,%.2f",name,fx1,fy1);
+                        double fw = 0 ,fh = 0;
+                        if (fx1 > fx2){
+                            fw = fx1 - fx2;
+                        }else fw = fx2 - fx1;
+                        if (fy1 > fy2){
+                            fh = fy1 - fy2;
+                        }else fw = fy2 - fy1;
+                        System.out.println(output);
+                        System.out.println("The width of bounding box is " + fw);
+                        System.out.println("The hight of bounding box is " + fh);
+
+                    }
+                    UI();
+                    break;
+                }else{
+                    System.out.println("The shape is empty Please add some shape before using Boundingbox()");
                     UI();
                     break;
                 }

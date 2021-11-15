@@ -13,7 +13,9 @@ public class Application {
         System.out.println("Menu:");
         System.out.println("----------------------------------------------");
         for (int i = 0; i < x.length ; i++){
-            System.out.println(i + " : " + x[i] );
+            if ( i >= 0 && i <= 3){
+                System.out.println(i + " : Input shape " + x[i] );
+            }else    System.out.println(i + " : " + x[i] );
         }
         System.out.println("----------------------------------------------");
         Scanner inputobj = new Scanner(System.in);

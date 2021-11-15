@@ -152,6 +152,7 @@ class Groupped extends Shape{
     public String getgpname(){
         return lock.get(0).getName();
     }
+    public  ArrayList<Shape> returnlist(){return lock;}
     ArrayList<Coordination> getPoints(){return null;}
 
 }
