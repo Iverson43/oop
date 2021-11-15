@@ -17,7 +17,6 @@ public class Coordination {
     public double getY() {
         return this.y;
     }
-
     public double displacement(Coordination other) {
         double result = Math.sqrt( Math.pow(this.getX() - other.getX(), 2) + Math.pow(this.getY() - other.getY(), 2));
         return Math.round(result * 100.0) / 100.0;
@@ -35,6 +34,6 @@ public class Coordination {
         return (other.getY() - this.getY()) / (other.getX() - this.getX());
     }
     public String toString() {
-        return "(" + this.x + ", " + this.y + ")";
+        return "("+this.x+", "+this.y+")";
     }
 }

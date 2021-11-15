@@ -3,6 +3,7 @@ package hk.edu.polyu.comp.comp2021.clevis;
 
 import hk.edu.polyu.comp.comp2021.clevis.model.Clevis;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class Application {
         int input = inputobj.nextInt();
         return input;
     }
-    public static void main(String[] args) {
+    public static void main(String[] args)  throws IOException {
         // Clevis clevis = new Clevis();
         // Initialize and utilize the system
         System.out.println("======================");
@@ -37,11 +38,13 @@ public class Application {
                 case 0 : case 1 : case 2 : case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
                 case 11 :case 12 :
                     x.add(operation_command[Input]);
+                    x.write(operation_command[Input]);
                     break;
                 case 13:
                     System.out.println("Exiting Clevis");
                     leave = true;
                     System.exit(0);
+                    x.write(operation_command[Input]);
                     break;
             }
             System.out.println("Continue?:\ntype '0' to continue\n'1' to quit");

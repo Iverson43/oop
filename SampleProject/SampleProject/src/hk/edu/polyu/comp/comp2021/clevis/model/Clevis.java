@@ -1,10 +1,16 @@
 package hk.edu.polyu.comp.comp2021.clevis.model;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 public class Clevis {
 
     ArrayList<Shape> shapeList;
+    ArrayList<String> orderRecord;
 
     int count ;
+
+    String html, txt;
 
     public Clevis(){
         shapeList = new ArrayList<Shape>();
@@ -19,7 +25,48 @@ public class Clevis {
     public void UI(){
         System.out.println("-------------------\n");
     }
+    public void read( ) throws IOException {
+        this.orderRecord = new ArrayList<>();
+        File file = new File(txt);
+        Scanner sc = new Scanner(file);
+        while (sc.hasNext()){
+            this.orderRecord.add(sc.nextLine());
+        }
+        sc.close();
+    }
 
+    public void write(String command) throws IOException {
+        File t = new File(txt);
+        if (!t.exists()) {
+            FileWriter output = new FileWriter(txt);
+        }
+        FileWriter writer2 = new FileWriter(txt);
+        writer2.append(command+"\n");
+        writer2.close();
+
+        read(); //Update the orderRecord
+
+        FileWriter htmlwriter = new FileWriter(html);
+        htmlwriter.write("<!DOCTYPE html>\n" +
+                "<html>\n" +
+                "<body>\n" +
+                "<table>\n" +
+                "  <tr>\n" +
+                "    <th>Index</th>\n" +
+                "    <th>Operation</th>\n" +
+                "  </tr>");
+        int index = 1;
+        for (String each: orderRecord){
+            htmlwriter.write("  <tr>\n" +
+                    "    <td>"+index+++"</td>\n" +
+                    "    <td>"+each+"</td>\n" +
+                    "  </tr>");
+        }
+        htmlwriter.write("</table>\n" +
+                "</body>\n" +
+                "</html>\n");
+        htmlwriter.close();
+    }
     public void listPrint(Shape s){
         System.out.println("Name: "+s.getName());
         if (s instanceof Circle) {

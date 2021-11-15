@@ -13,11 +13,10 @@ public abstract class Shape {
         this.name = n;
         this.topLeft = new Coordination(a,b);
 
-    }
+    };
     //Returns the name and coordination of a Shape
     String getName() {return name;}
     Coordination getTopLeft() {return topLeft;}
-
     boolean getlock() {return islock;}
     abstract ArrayList<Coordination> getPoints();
 
@@ -73,6 +72,7 @@ class Circle extends Shape{
 
     //Return the radian of a circle
     double getRadius() {return radius;}
+
 
     //Return the coordination of centre.
     ArrayList<Coordination> getPoints() {
