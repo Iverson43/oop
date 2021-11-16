@@ -6,21 +6,14 @@ import java.util.*;
 public class Clevis {
 
     ArrayList<Shape> shapeList;
-    ArrayList<String> orderRecord;
-
     int count ;
 
-    public String html, txt;
+    ArrayList<String> orderRecord;
+    public String html = "log.html", txt = "log.txt";
 
     public Clevis(){
         shapeList = new ArrayList<Shape>();
         count = 0;
-        orderRecord = new ArrayList<>();
-        if ( html == null || txt == null){
-            html = "log.html";
-            txt = "log.txt";
-        }
-
     }
     public int match(ArrayList<Shape> x, String y){
         for (int i = 0 ; i < count ; i++){
@@ -32,7 +25,7 @@ public class Clevis {
         System.out.println("----------------------------------------------\n");
     }
     public void read( ) throws IOException {
-        this.orderRecord = new ArrayList<>();
+        orderRecord = new ArrayList<>();
         File file = new File(txt);
         Scanner sc = new Scanner(file);
         while (sc.hasNext()){
@@ -87,14 +80,17 @@ public class Clevis {
         return result;
     }
 
-    public void write(String command) throws IOException {
+    public void writeLog(String command) throws IOException {
         File t = new File(txt);
-        if (!t.exists()) {
-            FileWriter output = new FileWriter(txt);
+        if (!t.exists()){
+            FileWriter output = new FileWriter(t);
+            output.append(command+"\n");
+            output.close();
+        }else {
+            FileWriter output = new FileWriter(t,true);
+            output.append(command+"\n");
+            output.close();
         }
-        FileWriter writer2 = new FileWriter(txt);
-        writer2.append(command+"\n");
-        writer2.close();
 
         read(); //Update the orderRecord
 

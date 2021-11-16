@@ -1,6 +1,5 @@
 package hk.edu.polyu.comp.comp2021.clevis;
 
-
 import hk.edu.polyu.comp.comp2021.clevis.model.Clevis;
 
 import java.io.IOException;
@@ -41,7 +40,7 @@ public class Application {
         boolean leave = false;
         while (!leave){
             int Input = printmenu(operation_command);
-            x.write(operation_command[Input]);
+            x.writeLog(operation_command[Input]);
             switch(Input)
             {
                 case 0 : case 1 : case 2 : case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
@@ -59,6 +58,7 @@ public class Application {
             int j = leave1.nextInt();
             if (j == 0) continue;
             else {
+                x.writeLog("Quit()");
                 leave1.close();
                 System.exit(0);
             }
