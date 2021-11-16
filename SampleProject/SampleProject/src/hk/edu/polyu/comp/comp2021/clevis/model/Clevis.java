@@ -477,7 +477,7 @@ public class Clevis {
                     UI();
                     if (!hvgp) System.out.println("There is no grouped shape call: " + name + " please try again");
                     else {
-                        writeLog(x+" "+);
+                        writeLog(x+" "+name+"\n");
                         System.out.println("The grouped shape: " + name + " has been unlocked");
                     }
                     UI();
@@ -512,10 +512,6 @@ public class Clevis {
                             y1 = (double) temp4.get(1);
                             x2 = (double) temp4.get(4);
                             y2 = (double) temp4.get(5);
-                            String output = String.format("The top-left corner of shape%s is %.2f,%.2f",name,x1,y1);
-                            System.out.println(output);
-                            System.out.println("The width of bounding box is " + x2);
-                            System.out.println("The hight of bounding box is " + y2);
                         }else{
                             System.out.println("The line with name: " + name + " is a Horizontal line or Vertical line. It don't have bounding box.");
                             nobounding = true;
@@ -569,6 +565,7 @@ public class Clevis {
                             if (fy1 > fy2){
                                 fh = fy1 - fy2;
                             }else fw = fy2 - fy1;
+                            writeLog(x+" "+name+"\n");
                             System.out.println(output);
                             System.out.println("The width of bounding box is " + fw);
                             System.out.println("The hight of bounding box is " + fh);
