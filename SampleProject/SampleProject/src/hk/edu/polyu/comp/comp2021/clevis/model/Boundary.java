@@ -14,12 +14,10 @@ public class Boundary {
 
     BoundaryLine[] setBoundary() {
         ArrayList<BoundaryLine> result = new ArrayList<>();
+        Coordination[] pointArr = s.getPoints().toArray(new Coordination[2]);
         if (s instanceof Line) {
-            Coordination[] pointArr = s.getPoints().toArray(new Coordination[2]);
             result.add(new StraightLine(pointArr[0], pointArr[1]));
-            return result.toArray(new BoundaryLine[1]);
         } else if (s instanceof Rectangle) {
-            Coordination[] pointArr = s.getPoints().toArray(new Coordination[2]);
             int ptr1 = 0;
             int ptr2 = 1;
             for (int j=0;j<pointArr.length; j++){
@@ -27,6 +25,8 @@ public class Boundary {
                 if (ptr2>=3) ptr2 = 0;
                 else ptr2 += 2;
             }
+        } else {
+            result.add(new CircularLine(pointArr[0]));
         }
         return result.toArray(new BoundaryLine[result.size()]);
     }
@@ -169,12 +169,19 @@ class StraightLine implements BoundaryLine{
 }
 
 class CircularLine implements BoundaryLine {
-    int a;
-    CircularLine() {
-        this.a = 0;
+
+    Coordination centre;
+
+    CircularLine(Coordination a) {
+        this.centre = a;
     }
 
     public boolean isIntercept(StraightLine other) {
+        return false;
+    }
+
+    public boolean isIntercept(CircularLine other) {
+        //if(this.centre)
         return false;
     }
 }
