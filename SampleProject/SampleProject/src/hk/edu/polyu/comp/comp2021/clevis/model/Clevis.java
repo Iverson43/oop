@@ -201,7 +201,7 @@ public class Clevis {
                 System.out.println( "Please input " + name + "'s endting y coordinate");
                 double endy = sc.nextDouble();
                 UI();
-                writeLog(x+" "+name+" "+startx+" "+starty+" "+endx+" "+endy);
+                writeLog(x+" "+name+" "+startx+" "+starty+" "+endx+" "+endy+"\n");
                 shapeList.add(new Line(name,startx,starty,endx,endy)) ;
                 count++;
                 UI();
@@ -289,8 +289,8 @@ public class Clevis {
                 }
 
             case "listAll":
-                writeLog(x+"\n");
                 if (shapeList.size()!=0){
+                    writeLog(x+"\n");
                     for (int i = shapeList.size()-1; i>=0;i--){
                         if (shapeList.get(i).getlock() == false) availableList(shapeList.get(i),i);
                     }
@@ -429,6 +429,8 @@ public class Clevis {
                     }
                     boolean finish_input = false;
 
+                    writeLog(x+" "+groupname);
+
                     Groupped groupped_name = new Groupped(groupname);
 
                     while(finish_input == false){
@@ -439,6 +441,7 @@ public class Clevis {
                         if (found != -1 && shapeList.get(found).getlock() == false){
                             shapeList.get(found).setlock();
                             groupped_name.addintogroup(shapeList.get(found));
+                            writeLog(" "+shapeList.get(found).getName());
                         }else System.out.println("There is no shape call: " + name + "or the shape " + name +" is locked");
                         UI();
                         System.out.println("Continue to add?\nType 'yes' to continue\nType 'no' to stop adding");
@@ -447,7 +450,7 @@ public class Clevis {
                         if(Continue.equals("yes")) continue;
                         else finish_input = true;
                     }
-
+                    writeLog("\n");
                     shapeList.add(groupped_name);
                     UI();
                     break;
@@ -457,7 +460,7 @@ public class Clevis {
                     break;
                 }
 
-            case "Ungroup()":
+            case "ungroup":
                 if (shapeList.size() != 0){
                     System.out.println("Please input the name of the shape you want to ungroup");
                     sc = new Scanner(System.in);
@@ -473,7 +476,10 @@ public class Clevis {
                     }
                     UI();
                     if (!hvgp) System.out.println("There is no grouped shape call: " + name + " please try again");
-                    else System.out.println("The grouped shape: " + name +" has been unlocked");
+                    else {
+                        writeLog(x+" "+);
+                        System.out.println("The grouped shape: " + name + " has been unlocked");
+                    }
                     UI();
 
                     if (hvgp == false ) System.out.println("The shape " + name + " is not exist");
