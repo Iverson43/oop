@@ -515,8 +515,6 @@ public class Clevis {
         }
 
     }
-<<<<<<< Updated upstream
-=======
 
     public void delete(String name){
         for (Shape item: shapeList){
@@ -547,6 +545,4 @@ public class Clevis {
 
 
     }
-
->>>>>>> Stashed changes
 }

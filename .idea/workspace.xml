@@ -28,7 +28,15 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="RunManager" selected="JUnit.BoundaryTest.isInterceptLL">
+  <component name="RunManager" selected="JUnit.All in oop">
+    <configuration name="All in oop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oop" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BoundaryTest and 1 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oop" />
       <option name="TEST_OBJECT" value="pattern" />
@@ -71,22 +79,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoundaryTest.isInterceptRR" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="oop" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.clevis.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model" />
-      <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.clevis.model.BoundaryTest" />
-      <option name="METHOD_NAME" value="isInterceptRR" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ShapeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oop" />
       <extension name="coverage">
@@ -104,18 +96,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.BoundaryTest" />
-      <item itemvalue="JUnit.BoundaryTest.isInterceptRR" />
       <item itemvalue="JUnit.ShapeTest" />
       <item itemvalue="JUnit.BoundaryTest and 1 more" />
       <item itemvalue="JUnit.BoundaryTest.isInterceptLL" />
+      <item itemvalue="JUnit.All in oop" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in oop" />
         <item itemvalue="JUnit.BoundaryTest.isInterceptLL" />
         <item itemvalue="JUnit.BoundaryTest and 1 more" />
         <item itemvalue="JUnit.ShapeTest" />
         <item itemvalue="JUnit.BoundaryTest" />
-        <item itemvalue="JUnit.BoundaryTest.isInterceptRR" />
       </list>
     </recent_temporary>
   </component>
