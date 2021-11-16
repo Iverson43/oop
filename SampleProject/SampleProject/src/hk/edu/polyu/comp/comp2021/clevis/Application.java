@@ -62,6 +62,7 @@ public class Application {
                 leave1.close();
                 System.exit(0);
             }
+            System.out.println("Hi Boris");
         }
 
     }
