@@ -352,6 +352,28 @@ public class Clevis {
                                 double pmtemp3 = Math.sqrt(pmtemp1*pmtemp1+pmtemp2*pmtemp2)-((Circle) pmtemp).getRadius();
                                 if (pmtemp3< 0.05 && pmtemp3>= 0){
                                     move(pmtemp,dx,dy);
+                                }else if (pmtemp instanceof Rectangle || pmtemp instanceof Square){
+                                    Coordination X = pmtemp.getTopLeft();
+                                    double rcx = X.getX();
+                                    double rcy = X.getY();
+                                    double rcw = ((Rectangle) pmtemp).getWidth();
+                                    double rch = ((Rectangle) pmtemp).getHeight();
+                                    if ((px > rcx-0.05 && px < rcx ) &&( py > rcy-0.05 && py < (rcy + rch +0.05))){
+                                        move(pmtemp,dx,dy);
+                                        continue;
+                                    }
+                                    if ((px > rcx - 0.05 && px < (rcx + rcw + 0.05)) && (py > rcy - 0.05 && py < rcy)){
+                                        move(pmtemp,dx,dy);
+                                        continue;
+                                    }
+                                    if ((px > rcx - 0.05 && px < (rcx + rcw + 0.05)) && (py > (rcy + rch ) && py < (rcy + rch+0.05))){
+                                        move(pmtemp,dx,dy);
+                                        continue;
+                                    }
+                                    if ((px > (rcx + rcw) && px < (rcx + rcw+0.05)) && (py > rcy-0.05 && py < (rcy+rch+0.05))){
+                                        move(pmtemp,dx,dy);
+                                        continue;
+                                    }
                                 }
                             }else if (pmtemp instanceof Line){
 
