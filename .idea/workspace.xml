@@ -142,21 +142,6 @@
           <line>35</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Boundary.java</url>
-          <line>157</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Boundary.java</url>
-          <line>161</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/SampleProject/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Boundary.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

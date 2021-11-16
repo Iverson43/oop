@@ -26,7 +26,7 @@ public class Boundary {
                 else ptr2 += 2;
             }
         } else {
-            result.add(new CircularLine(pointArr[0]));
+            result.add(new CircularLine(pointArr[0],((Circle)this.s).getRadius()));
         }
         return result.toArray(new BoundaryLine[result.size()]);
     }
@@ -62,6 +62,8 @@ class StraightLine implements BoundaryLine{
     // Store Coordination
     private Coordination a;
     private Coordination b;
+    Coordination getA() {return a;}
+    Coordination getB() {return b;}
 
     // If the line is diagonal
     private double slope;
@@ -69,6 +71,7 @@ class StraightLine implements BoundaryLine{
 
     // If the line is horizontal or vertical
     private LineType type;
+    LineType getType() {return type;}
 
     StraightLine(Coordination a, Coordination b) {this.setLine(a,b);}
 
@@ -87,6 +90,7 @@ class StraightLine implements BoundaryLine{
         this.b = b;
         if (this.type == LineType.DIAGONAL) this.setProperties(a,b);
     }
+
     void setProperties(Coordination a, Coordination b) {
         if (type != LineType.DIAGONAL) {throw new IllegalArgumentException();}
 
@@ -171,17 +175,19 @@ class StraightLine implements BoundaryLine{
 class CircularLine implements BoundaryLine {
 
     Coordination centre;
+    double radius;
 
-    CircularLine(Coordination a) {
+    CircularLine(Coordination a, double r) {
         this.centre = a;
+        this.radius = r;
     }
 
     public boolean isIntercept(StraightLine other) {
-        return false;
+
     }
 
     public boolean isIntercept(CircularLine other) {
-        //if(this.centre)
+        double length = Math.sqrt(this.centre.squaredLength(other.centre));
         return false;
     }
 }
