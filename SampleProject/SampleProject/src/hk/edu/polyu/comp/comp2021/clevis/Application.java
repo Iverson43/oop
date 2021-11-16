@@ -28,8 +28,8 @@ public class Application {
         System.out.println("======================");
         System.out.println("Welcome To Clevis");
         System.out.println("======================" );
-        String[] operation_command = new String[]{"Rectangle()","Line()","Circle()","Square()" , "Group()","Ungroup()",
-        "Delete()","Boundingbox()","Move()","Pick_and_move()","Intersect()","List()","Listall()","Quit()"};
+        String[] operation_command = new String[]{"rectangle","line","circle","square" , "group","ungroup",
+        "delete","boundingbox","move ","pick-and-move","intersect","list","listAll","quit"};
 
         Clevis x = new Clevis();
         if (args.length==4){
@@ -40,7 +40,6 @@ public class Application {
         boolean leave = false;
         while (!leave){
             int Input = printmenu(operation_command);
-            x.writeLog(operation_command[Input]);
             switch(Input)
             {
                 case 0 : case 1 : case 2 : case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
@@ -58,7 +57,7 @@ public class Application {
             int j = leave1.nextInt();
             if (j == 0) continue;
             else {
-                x.writeLog("Quit()");
+                x.writeLog("quit\n");
                 leave1.close();
                 System.exit(0);
             }

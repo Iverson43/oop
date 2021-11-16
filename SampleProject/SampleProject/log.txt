@@ -1,0 +1,6 @@
+Rectangle()
+Line()
+Quit()
+rectangle
+square
+quit

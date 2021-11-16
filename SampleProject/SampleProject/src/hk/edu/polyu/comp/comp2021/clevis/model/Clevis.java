@@ -84,11 +84,11 @@ public class Clevis {
         File t = new File(txt);
         if (!t.exists()){
             FileWriter output = new FileWriter(t);
-            output.append(command+"\n");
+            output.append(command);
             output.close();
         }else {
             FileWriter output = new FileWriter(t,true);
-            output.append(command+"\n");
+            output.append(command);
             output.close();
         }
 
@@ -160,9 +160,9 @@ public class Clevis {
         return groupedList;
     }
 
-    public void add(String x){
+    public void add(String x) throws IOException{
         switch (x){
-            case "Rectangle()":
+            case "rectangle":
                 System.out.println("Please input your " + x + "'s name");
                 Scanner sc = new Scanner(System.in);
                 String name = sc.nextLine();
@@ -179,11 +179,12 @@ public class Clevis {
                 System.out.println( "Please input " + name + "'s hight");
                 double hight = sc.nextDouble();
                 UI();
+                writeLog(x+" "+name+" "+xcoord+" "+ycoord+" "+width+" "+hight);
                 shapeList.add(new Rectangle(name,xcoord,ycoord,width,hight));
                 count++;
                 UI();
                 break;
-            case "Line()":
+            case "line":
                 System.out.println("Please input your " + x + "'s name");
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
@@ -200,11 +201,12 @@ public class Clevis {
                 System.out.println( "Please input " + name + "'s endting y coordinate");
                 double endy = sc.nextDouble();
                 UI();
+                writeLog(x+" "+name+" "+startx+" "+starty+" "+endx+" "+endy);
                 shapeList.add(new Line(name,startx,starty,endx,endy)) ;
                 count++;
                 UI();
                 break;
-            case "Circle()":
+            case "circle":
                 System.out.println("Please input your " + x + "'s name");
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
@@ -219,11 +221,12 @@ public class Clevis {
                 System.out.println( "Please input " + name + "'s radius");
                 double radius = sc.nextDouble();
                 UI();
+                writeLog(x+" "+name+" "+centerx+" "+centery+" "+radius+"\n");
                 shapeList.add(new Circle(name,centerx,centery,radius)) ;
                 count++;
                 UI();
                 break;
-            case "Square()":
+            case "square":
                 System.out.println("Please input your " + x + "'s name");
                 sc = new Scanner(System.in);
                 name = sc.nextLine();
@@ -238,17 +241,19 @@ public class Clevis {
                 System.out.println( "Please input " + name + "'s width");
                 double sqw = sc.nextDouble();
                 UI();
+                writeLog(x+" "+name+" "+sqx+" "+sqy+" "+sqw+"\n");
                 shapeList.add(new Square(name,sqx,sqy,sqw));
                 count++;
                 UI();
                 break;
-            case "Delete()":
+            case "delete":
                 if (shapeList.size() != 0){
                     System.out.println("Please input the name of the shape you want to delete: ");
                     sc = new Scanner(System.in);
                     name = sc.nextLine();
                     int found = match(this.shapeList,name);
                     UI();
+                    writeLog(x+" "+name+"\n");
                     if (found != -1 && shapeList.get(found).getlock() == false){
                         shapeList.remove(found);
                         count --;
@@ -263,13 +268,14 @@ public class Clevis {
                     break;
                 }
 
-            case "List()":
+            case "list":
                 if(shapeList.size()!= 0 ){
                     System.out.println("Please input the name of the shape you want to see it information");
                     sc = new Scanner(System.in);
                     name = sc.nextLine();
                     int found = match(this.shapeList,name);
                     UI();
+                    writeLog(x+" "+name+"\n");
                     Shape temp;
                     if (found != -1 && shapeList.get(found).getlock() == false) {
                         availableList(shapeList.get(found),found);
@@ -282,7 +288,8 @@ public class Clevis {
                     break;
                 }
 
-            case "Listall()":
+            case "listAll":
+                writeLog(x+"\n");
                 if (shapeList.size()!=0){
                     for (int i = shapeList.size()-1; i>=0;i--){
                         if (shapeList.get(i).getlock() == false) availableList(shapeList.get(i),i);
@@ -296,7 +303,7 @@ public class Clevis {
                     break;
                 }
 
-            case "Move()":
+            case "move":
                 if (shapeList.size() != 0){
                     System.out.println("Please input the name of the shape you want to move: ");
                     sc = new Scanner(System.in);
@@ -308,6 +315,7 @@ public class Clevis {
                     System.out.println("Please input the units to move "+name+" vertically: ");
                     double dy = sc.nextDouble();
                     if (found != -1) {
+                        writeLog(x+" "+name+" "+dx+" "+dy+"\n");
                         Shape temp = shapeList.get(found);
                         if (temp instanceof Groupped)
                             moveGroup((Groupped) temp, dx, dy);
@@ -328,7 +336,7 @@ public class Clevis {
                     break;
                 }
 
-            case "Pick_and_move()":
+            case "pick-and-move":
                 if (shapeList.size() != 0 ){
                     System.out.println("Please input the x coordinate of picked point: ");
                     sc = new Scanner(System.in);
@@ -395,7 +403,7 @@ public class Clevis {
                 }
 
 
-            case "Group()":
+            case "group":
                 if (shapeList.size()!=0){
                     System.out.println("Please input the name of the grouped shape: ");
                     sc = new Scanner(System.in);
@@ -462,7 +470,7 @@ public class Clevis {
                     UI();
                     break;
                 }
-            case "Boundingbox()":
+            case "boundingbox":
                 getGroupedList();
                 if (shapeList.size() !=0){
                     System.out.println("Please input the shape name you check the Bounding box: ");
@@ -553,33 +561,4 @@ public class Clevis {
 
     }
 
-    public void delete(String name){
-        for (Shape item: shapeList){
-            if(name == item.getName()) {shapeList.remove(item);return;}
-        }
-    }
-
-    /*public void list(String name){
-        for (Shape item: shapeList){
-            if(name == item.getName()){
-                if (item instanceof Rectangle)
-            }
-        }
-    }*/
-
-    public void group(String n, String[] ungroupList){
-        if(ungroupList.length==0 || ungroupList==null)
-            throw new IllegalArgumentException();
-        ArrayList<Shape> groupList = new ArrayList<>();
-        for (String name: ungroupList){
-            for (Shape item: shapeList){
-                if(name == item.getName()){
-                    groupList.add(item);
-                    continue;
-                }
-            }
-        }
-
-
-    }
 }
