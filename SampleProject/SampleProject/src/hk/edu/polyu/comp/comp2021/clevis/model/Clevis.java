@@ -353,9 +353,12 @@ public class Clevis {
                                 Coordination pmx = pmtemp.getTopLeft();
                                 double pmtemp1 = px-pmx.getX();
                                 double pmtemp2 = py-pmx.getY();
-                                if (Math.sqrt(pmtemp1*pmtemp1+pmtemp2*pmtemp2)-((Circle) pmtemp).getRadius() < 0.05){
+                                double pmtemp3 = Math.sqrt(pmtemp1*pmtemp1+pmtemp2*pmtemp2)-((Circle) pmtemp).getRadius();
+                                if (pmtemp3< 0.05 && pmtemp3>= 0){
                                     move(pmtemp,dx,dy);
                                 }
+                            }else if (pmtemp instanceof Line){
+
                             }
                         }
                     }
