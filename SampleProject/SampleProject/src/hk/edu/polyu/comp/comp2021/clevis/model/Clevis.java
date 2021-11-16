@@ -384,7 +384,22 @@ public class Clevis {
                                     }
                                 }
                             }else if (pmtemp instanceof Line){
-
+                                Coordination X = pmtemp.getTopLeft();
+                                double temp = X.getX() - ((Line) pmtemp).getEndX();
+                                double temp2 = X.getY() - ((Line) pmtemp).getEndY();
+                                double length = Math.sqrt(temp*temp + temp2 *temp2);
+                                double length2 = Math.sqrt((px-X.getX()*(px-X.getX() + (py - X.getY())*(py - X.getY()))));
+                                double length3 = Math.sqrt((px-((Line) pmtemp).getEndX())*(px-((Line) pmtemp).getEndX()) + (py - ((Line) pmtemp).getEndY())*
+                                        (py - ((Line) pmtemp).getEndY()));
+                                double s = (length+length2+length3)/2;
+                                double area = Math.sqrt(s*(s-length)*(s-length2)*(s-length3));
+                                double angle1 = ((length*length)+(length2*length2)-(length3*length3))/(2*length*length2);
+                                double angle2 = ((length*length)+(length3*length3)-(length2*length2))/(2*length*length3);
+                                if ((angle1 >= 0 && angle1 < 1) && ((angle2 >= 0 && angle2 < 1))){
+                                    if (area*2/length < 0.05 &&area*2/length  >= 0){
+                                        move(pmtemp,dx,dy);
+                                    }
+                                }
                             }
                         }
                     }
@@ -481,6 +496,7 @@ public class Clevis {
                         name = sc.nextLine();
                     }
                     double bounding_x, bounding_y, bounding_w, bounding_h;
+                    boolean nobounding = false;
                     Shape temp2 = shapeList.get(match(this.shapeList,name));
                     if (temp2 instanceof  Groupped == false){
                         ArrayList<Double> temp4 = bounding_result(temp2);
@@ -496,6 +512,7 @@ public class Clevis {
                             System.out.println("The hight of bounding box is " + y2);
                         }else{
                             System.out.println("The line with name: " + name + " is a Horizontal line or Vertical line. It don't have bounding box.");
+                            nobounding = true;
                         }
 
                     }
@@ -537,17 +554,20 @@ public class Clevis {
                             }
 
                         }
-                        String output = String.format("The top-left corner of shape%s is %.2f,%.2f",name,fx1,fy1);
-                        double fw = 0 ,fh = 0;
-                        if (fx1 > fx2){
-                            fw = fx1 - fx2;
-                        }else fw = fx2 - fx1;
-                        if (fy1 > fy2){
-                            fh = fy1 - fy2;
-                        }else fw = fy2 - fy1;
-                        System.out.println(output);
-                        System.out.println("The width of bounding box is " + fw);
-                        System.out.println("The hight of bounding box is " + fh);
+                        if (nobounding == false){
+                            String output = String.format("The top-left corner of shape%s is %.2f,%.2f",name,fx1,fy1);
+                            double fw = 0 ,fh = 0;
+                            if (fx1 > fx2){
+                                fw = fx1 - fx2;
+                            }else fw = fx2 - fx1;
+                            if (fy1 > fy2){
+                                fh = fy1 - fy2;
+                            }else fw = fy2 - fy1;
+                            System.out.println(output);
+                            System.out.println("The width of bounding box is " + fw);
+                            System.out.println("The hight of bounding box is " + fh);
+                        }
+
 
                     }
                     UI();
