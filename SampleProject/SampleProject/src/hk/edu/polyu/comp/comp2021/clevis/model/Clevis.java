@@ -58,6 +58,10 @@ public class Clevis {
             bounding_y = X.getY()-((Circle) x).getRadius();
         }else if(x instanceof Line){
             Coordination X = x.getTopLeft();
+            if (X.getX() == ((Line) x).getEndX() || X.getY() == ((Line) x).getEndY() ){
+                result.add(-87.87);
+                return result;
+            }
             if (X.getY() > ((Line) x).getEndY()){
                 bounding_h = X.getY() - ((Line) x).getEndY();
                 bounding_y = ((Line) x).getEndY();
@@ -65,6 +69,7 @@ public class Clevis {
                 bounding_h = ((Line) x).getEndY() - X.getY();
                 bounding_y = X.getY();
             }
+
             if (X.getX() > ((Line) x).getEndX()){
                 bounding_w = X.getX() - ((Line) x).getEndX();
                 bounding_x = ((Line) x).getEndX();
@@ -451,14 +456,19 @@ public class Clevis {
                     if (temp2 instanceof  Groupped == false){
                         ArrayList<Double> temp4 = bounding_result(temp2);
                         double x1 ,y1 ,x2 ,y2;
-                        x1 = (double) temp4.get(0);
-                        y1 = (double) temp4.get(1);
-                        x2 = (double) temp4.get(4);
-                        y2 = (double) temp4.get(5);
-                        String output = String.format("The top-left corner of shape%s is %.2f,%.2f",name,x1,y1);
-                        System.out.println(output);
-                        System.out.println("The width of bounding box is " + x2);
-                        System.out.println("The hight of bounding box is " + y2);
+                        if (temp4.get(0) != -87.87){
+                            x1 = (double) temp4.get(0);
+                            y1 = (double) temp4.get(1);
+                            x2 = (double) temp4.get(4);
+                            y2 = (double) temp4.get(5);
+                            String output = String.format("The top-left corner of shape%s is %.2f,%.2f",name,x1,y1);
+                            System.out.println(output);
+                            System.out.println("The width of bounding box is " + x2);
+                            System.out.println("The hight of bounding box is " + y2);
+                        }else{
+                            System.out.println("The line with name: " + name + " is a Horizontal line or Vertical line. It don't have bounding box.");
+                        }
+
                     }
                     else if(temp2 instanceof Groupped){
                         ArrayList<Shape> temp_gplist = ((Groupped) temp2).returnlist();
@@ -470,27 +480,33 @@ public class Clevis {
                         double x1 ,y1 ,x2 ,y2;
                         double fx1 = 0 ,fy1 = 0 ,fx2=0 ,fy2 = 0;
                         for (int i = 0 ; i < temp5.size()-1; i++){
-                            x1 = (double) temp5.get(i).get(0);
-                            y1 = (double) temp5.get(i).get(1);
-                            x2 = (double) temp5.get(i).get(2);
-                            y2 = (double) temp5.get(i).get(3);
-                            for (int j = i+1 ; j < temp5.size(); j++){
-                                if (x1 <(double) temp5.get(j).get(0)){
-                                    fx1 = (double) temp5.get(j).get(0);
-                                }else fx1 = x1;
+                            if((double)temp5.get(i).get(0) != -87.87){
+                                x1 = (double) temp5.get(i).get(0);
+                                y1 = (double) temp5.get(i).get(1);
+                                x2 = (double) temp5.get(i).get(2);
+                                y2 = (double) temp5.get(i).get(3);
+                                for (int j = i+1 ; j < temp5.size(); j++){
+                                    if (x1 <(double) temp5.get(j).get(0)){
+                                        fx1 = (double) temp5.get(j).get(0);
+                                    }else fx1 = x1;
 
-                                if (y1 < (double)temp5.get(j).get(1) ){
-                                    fy1 = (double)temp5.get(j).get(1);
-                                }else fy1 = y1;
+                                    if (y1 < (double)temp5.get(j).get(1) ){
+                                        fy1 = (double)temp5.get(j).get(1);
+                                    }else fy1 = y1;
 
-                                if (x2 > (double)temp5.get(j).get(2) ){
-                                    fx2 = x2;
-                                }else fx2 = (double)temp5.get(j).get(2);
+                                    if (x2 > (double)temp5.get(j).get(2) ){
+                                        fx2 = x2;
+                                    }else fx2 = (double)temp5.get(j).get(2);
 
-                                if (y2 > (double)temp5.get(j).get(3) ){
-                                    fy2 = y2;
-                                }else fy2 = (double)temp5.get(j).get(3);
+                                    if (y2 > (double)temp5.get(j).get(3) ){
+                                        fy2 = y2;
+                                    }else fy2 = (double)temp5.get(j).get(3);
+                                }
                             }
+                            else{
+                                continue;
+                            }
+
                         }
                         String output = String.format("The top-left corner of shape%s is %.2f,%.2f",name,fx1,fy1);
                         double fw = 0 ,fh = 0;
