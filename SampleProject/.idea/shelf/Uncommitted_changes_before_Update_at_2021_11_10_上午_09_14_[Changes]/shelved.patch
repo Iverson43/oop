@@ -1,0 +1,126 @@
+Index: SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package hk.edu.polyu.comp.comp2021.clevis.model;\r\n\r\nimport java.lang.reflect.Array;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\n\r\npublic abstract class Shape {\r\n\r\n    // The name and anchor of a Shape\r\n    private String name;\r\n    private Coordination topLeft;\r\n\r\n    Shape(String n, double a, double b) {\r\n        this.name = n;\r\n        this.topLeft = new Coordination(a,b);\r\n    };\r\n\r\n    //Returns the name and coordination of a Shape\r\n    String getName() {return name;}\r\n    double getStartX() {return topLeft.getX();}\r\n    double getStartY() {return topLeft.getY();}\r\n    Coordination getTopLeft() {return topLeft;}\r\n\r\n    abstract ArrayList<Coordination> getPoints();\r\n\r\n    public void move(double dx, double dy) {\r\n        topLeft = new Coordination(topLeft.getX()+dx , topLeft.getY()+dy);\r\n    }\r\n}\r\n\r\nclass Line extends Shape{\r\n\r\n    private Coordination bottomRight;\r\n\r\n    Line(String n, double x1, double y1, double x2, double y2) {\r\n        super(n, x1, y1);\r\n        this.bottomRight = new Coordination(x2,y2);\r\n    }\r\n\r\n    // Returns width and height of a Rectangle\r\n    double getEndX() {return bottomRight.getX();}\r\n    double getEndY() {return bottomRight.getY();}\r\n\r\n    ArrayList<Coordination> getPoints() {\r\n        ArrayList<Coordination> result = new ArrayList<Coordination>();\r\n        result.add(this.getTopLeft());\r\n        result.add(bottomRight);\r\n        return result;\r\n    }\r\n}\r\n\r\nclass Circle extends Shape{\r\n\r\n    //The radian of a circle\r\n    private double radian;\r\n\r\n    Circle(String n, double x, double y, double r) {\r\n        super(n, x, y);\r\n        this.radian = r;\r\n    }\r\n\r\n    //Return the radian of a circle\r\n    double getRadian() {return radian;}\r\n    ArrayList<Coordination> getPoints() {\r\n        ArrayList<Coordination> result = new ArrayList<>();\r\n        result.add(this.getTopLeft());\r\n        return result;\r\n    }\r\n}\r\n\r\nclass Rectangle extends Shape {\r\n\r\n    // The height and width for a rectangle.\r\n    private double width;\r\n    private double height;\r\n\r\n    Rectangle(String n, double x, double y, double w, double h) {\r\n        super(n, x, y);\r\n        this.width = w;\r\n        this.height = h;\r\n        this.toString();\r\n    };\r\n\r\n    // Returns width and height of a Rectangle\r\n    double getWidth() {return width;}\r\n    double getHeight() {return height;}\r\n\r\n    ArrayList<Coordination> getPoints() {\r\n        ArrayList<Coordination> result = new ArrayList<>();\r\n        result.add(this.getTopLeft());\r\n        result.add(new Coordination(this.getStartX()+width, this.getStartY()));\r\n        result.add(new Coordination(this.getStartX(), this.getStartY()+height));\r\n        result.add(new Coordination(this.getStartX()+width, this.getStartY()+height));\r\n        return result;\r\n    }\r\n\r\n    @Override\r\n\r\n    public String toString() {\r\n        System.out.println(this.getName());\r\n        System.out.println(\"Area: \" + width*height);\r\n        return null;\r\n    }\r\n}\r\n\r\nclass Square extends Rectangle{\r\n\r\n    Square(String n, double x, double y, double l) {\r\n        super(n, x, y, l, l);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java b/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java
+--- a/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java	(revision 3393afa6b124aecef80da27afd5756f5aa74894b)
++++ b/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java	(date 1636362950004)
+@@ -23,10 +23,6 @@
+     Coordination getTopLeft() {return topLeft;}
+ 
+     abstract ArrayList<Coordination> getPoints();
+-
+-    public void move(double dx, double dy) {
+-        topLeft = new Coordination(topLeft.getX()+dx , topLeft.getY()+dy);
+-    }
+ }
+ 
+ class Line extends Shape{
+Index: SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package hk.edu.polyu.comp.comp2021.clevis.model;\r\nimport java.util.*;\r\npublic class Clevis {\r\n\r\n    ArrayList<Shape> shapeList;\r\n    int count ;\r\n\r\n    public Clevis(){\r\n        ArrayList<Shape> shapeList = new ArrayList<Shape>();\r\n        count = 0;\r\n    }\r\n    public void add(String x){\r\n        switch (x){\r\n            case \"Rectangle()\":\r\n                System.out.println(\"Please input your \" + x + \"'s name\");\r\n                Scanner sc = new Scanner(System.in);\r\n                String name = sc.nextLine();\r\n                System.out.println( \"Please input \" + name + \"'s top left x coordinate\");\r\n                double xcoord = sc.nextDouble();\r\n                System.out.println( \"Please input \" + name + \"'s top left y coordinate\");\r\n                double ycoord = sc.nextDouble();\r\n                System.out.println( \"Please input \" + name + \"'s width\");\r\n                double width = sc.nextDouble();\r\n                System.out.println( \"Please input \" + name + \"'s hight\");\r\n                double hight = sc.nextDouble();\r\n                shapeList[count] = new Rectangle(name,xcoord,ycoord,width,hight);\r\n                count++;\r\n                break;\r\n            case \"Line()\":\r\n                System.out.println(\"Please input your \" + x + \"'s name\");\r\n                sc = new Scanner(System.in);\r\n                name = sc.nextLine();\r\n                System.out.println( \"Please input \" + name + \"'s starting x coordinate\");\r\n                double startx = sc.nextDouble();\r\n                System.out.println( \"Please input \" + name + \"'s starting y coordinate\");\r\n                double starty = sc.nextDouble();\r\n                System.out.println( \"Please input \" + name + \"'s ending x coordinate\");\r\n                double endx = sc.nextDouble();\r\n                System.out.println( \"Please input \" + name + \"'s endting y coordinate\");\r\n                double endy = sc.nextDouble();\r\n                shapeList[count] = new Line(name,startx,starty,endx,endy);\r\n                count++;\r\n                break;\r\n            case \"Circle()\":\r\n                System.out.println(\"Please input your \" + x + \"'s name\");\r\n                sc = new Scanner(System.in);\r\n                name = sc.nextLine();\r\n                System.out.println( \"Please input \" + name + \"'s center x coordinate\");\r\n                double centerx = sc.nextDouble();\r\n                System.out.println( \"Please input \" + name + \"'s center y coordinate\");\r\n                double centery = sc.nextDouble();\r\n                System.out.println( \"Please input \" + name + \"'s radius\");\r\n                double radius = sc.nextDouble();\r\n                shapeList[count] = new Circle(name,centerx,centery,radius);\r\n                count++;\r\n                break;\r\n            case \"Square()\":\r\n                System.out.println(\"Please input your \" + x + \"'s name\");\r\n                sc = new Scanner(System.in);\r\n                name = sc.nextLine();\r\n                System.out.println( \"Please input \" + name + \"'s top left x coordinate\");\r\n                double sqx = sc.nextDouble();\r\n                System.out.println( \"Please input \" + name + \"'s top left y coordinate\");\r\n                double sqy = sc.nextDouble();\r\n                System.out.println( \"Please input \" + name + \"'s width\");\r\n                double sqw = sc.nextDouble();\r\n                shapeList[count] = new Square(name,sqx,sqy,sqw);\r\n                count++;\r\n                break;\r\n        }\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java b/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java
+--- a/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java	(revision 3393afa6b124aecef80da27afd5756f5aa74894b)
++++ b/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java	(date 1636366113136)
+@@ -71,4 +71,34 @@
+ 
+     }
+ 
++    public void delete(String name){
++        for (Shape item: shapeList){
++            if(name == item.getName()) {shapeList.remove(item);return;}
++        }
++    }
++
++    public void list(String name){
++        for (Shape item: shapeList){
++            if(name == item.getName()){
++                if (item instanceof Rectangle)
++            }
++        }
++    }
++
++    public void group(String n, String[] ungroupList){
++        if(ungroupList.length==0 || ungroupList==null)
++            throw new IllegalArgumentException();
++        ArrayList<Shape> groupList = new ArrayList<>();
++        for (String name: ungroupList){
++            for (Shape item: shapeList){
++                if(name == item.getName()){
++                    groupList.add(item);
++                    continue;
++                }
++            }
++        }
++
++
++    }
++
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d278bf13-ef2a-4d2a-bd29-e08341091487\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/operation.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/operation.html\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"20XESCnJhmvTikAWt7HG4eZwLEZ\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Application\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"hk.edu.polyu.comp.comp2021.clevis.Application\" />\r\n      <module name=\"SampleProject\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"hk.edu.polyu.comp.comp2021.clevis.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Application\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d278bf13-ef2a-4d2a-bd29-e08341091487\" name=\"Changes\" comment=\"\" />\r\n      <created>1636182529864</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1636182529864</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3393afa6b124aecef80da27afd5756f5aa74894b)
++++ b/.idea/workspace.xml	(date 1636364005297)
+@@ -1,10 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
+   <component name="ChangeListManager">
+     <list default="true" id="d278bf13-ef2a-4d2a-bd29-e08341091487" name="Changes" comment="">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/Application.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/operation.html" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/operation.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Clevis.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/SampleProject/src/hk/edu/polyu/comp/comp2021/clevis/model/Shape.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -13,9 +16,14 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
++  </component>
++  <component name="ProblemsViewState">
++    <option name="selectedIndex" value="1" />
+   </component>
+   <component name="ProjectId" id="20XESCnJhmvTikAWt7HG4eZwLEZ" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <OptionsSetting value="false" id="Update" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -56,4 +64,16 @@
+     </task>
+     <servers />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
+ </project>
+\ No newline at end of file
