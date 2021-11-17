@@ -168,7 +168,7 @@ class StraightLine implements BoundaryLine{
     }
 
     public boolean isIntercept(CircularLine other) {
-        return false;
+        return other.isIntercept(this);
     }
 }
 
@@ -183,11 +183,25 @@ class CircularLine implements BoundaryLine {
     }
 
     public boolean isIntercept(StraightLine other) {
-
+        double tempA = Math.round(Coordination.length(this.centre,other.getA()) * 100) / 100;
+        double tempB = Math.round(Coordination.length(this.centre,other.getB()) * 100) / 100;
+        if (tempA == radius || tempB == radius) {return true;}
+        if (tempA < radius && tempB < radius) {return false;}
+        if (tempA > radius && tempB > radius) {
+            double tempC = Math.round(Coordination.length(other.getA(),other.getB()) * 100) / 100;
+            double s = (tempA + tempB + tempC) / 2;
+            double height = Math.sqrt(s*(s-tempA)*(s-tempB)*(s-tempC)) * 2 / tempC;
+            return height >= radius;
+        }
+        return true;
     }
 
     public boolean isIntercept(CircularLine other) {
-        double length = Math.sqrt(this.centre.squaredLength(other.centre));
-        return false;
+
+        CircularLine a = (other.radius > this.radius) ? other : this;
+        CircularLine b = (other.radius > this.radius) ? this : other;
+
+        double diff = Math.round(Coordination.length(a.centre, b.centre));
+        return (diff + (b.radius / 2) >= a.radius);
     }
 }

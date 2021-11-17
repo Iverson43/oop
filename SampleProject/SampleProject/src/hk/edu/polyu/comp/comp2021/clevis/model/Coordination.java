@@ -26,8 +26,8 @@ public class Coordination {
         return Math.abs(this.getY() - other.getY());
     }
 
-    static public double squaredLength(Coordination a, Coordination b) {
-        return Math.pow(a.getX() - b.getX(),2) + Math.pow(a.getX() - b.getX(),2);
+    static public double length(Coordination a, Coordination b) {
+        return Math.sqrt(Math.pow(a.getX() - b.getX(),2) + Math.pow(a.getX() - b.getX(),2));
     }
 
     public double slope(Coordination other) {
